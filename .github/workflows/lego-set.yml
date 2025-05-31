@@ -14,7 +14,7 @@ on:
         default: false
 
 jobs:
-  create_branch_and_pr:
+  add-lego-set:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
