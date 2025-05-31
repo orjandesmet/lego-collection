@@ -17,7 +17,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1",
     "@astrojs/check": "^0.9.4",
     "@astrojs/netlify": "^6.3.0",
     "@astrojs/tailwind": "^6.0.2",
@@ -28,6 +27,7 @@
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
+    "@actions/core": "^1.11.1",
     "@eslint/js": "^9.25.1",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^9.25.1",
