@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71025-16",
+  "name": "Mountain Biker",
+  "img": "./img/71025-16.jpg",
+  "year": 2019,
+  "themeId": "681",
+  "themes": ["535", "681"],
+  "parts": 10,
+  "wishlist": false
+}

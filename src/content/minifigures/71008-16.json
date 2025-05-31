@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71008-16",
+  "name": "Galaxy Trooper",
+  "img": "./img/71008-16.jpg",
+  "year": 2015,
+  "themeId": "551",
+  "themes": ["535", "551"],
+  "parts": 8,
+  "wishlist": false
+}

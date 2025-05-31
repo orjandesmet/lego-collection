@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "10248-1",
+  "name": "Ferrari F40",
+  "img": "./img/10248-1.jpg",
+  "year": 2015,
+  "themeId": "673",
+  "themes": ["22", "673"],
+  "parts": 1158,
+  "wishlist": false
+}

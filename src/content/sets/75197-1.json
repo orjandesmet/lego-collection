@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "75197-1",
+  "name": "First Order Specialists Battle Pack",
+  "img": "./img/75197-1.jpg",
+  "year": 2018,
+  "themeId": "158",
+  "themes": ["158"],
+  "parts": 108,
+  "wishlist": false
+}

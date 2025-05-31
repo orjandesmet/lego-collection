@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "40527-1",
+  "name": "Easter Chicks",
+  "img": "./img/40527-1.jpg",
+  "year": 2022,
+  "themeId": "229",
+  "themes": ["206", "229"],
+  "parts": 318,
+  "wishlist": false
+}

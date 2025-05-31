@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71048-11",
+  "name": "Cat Lover",
+  "img": "./img/71048-11.jpg",
+  "year": 2025,
+  "themeId": "771",
+  "themes": ["535", "771"],
+  "parts": 7,
+  "wishlist": false
+}

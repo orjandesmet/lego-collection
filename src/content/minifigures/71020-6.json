@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71020-6",
+  "name": "Swimsuit Batman",
+  "img": "./img/71020-6.jpg",
+  "year": 2018,
+  "themeId": "711",
+  "themes": ["535", "711"],
+  "parts": 7,
+  "wishlist": false
+}

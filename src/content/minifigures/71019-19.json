@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71019-19",
+  "name": "Sushi Chef",
+  "img": "./img/71019-19.jpg",
+  "year": 2017,
+  "themeId": "618",
+  "themes": ["535", "618"],
+  "parts": 9,
+  "wishlist": false
+}

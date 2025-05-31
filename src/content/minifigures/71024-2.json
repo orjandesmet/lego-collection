@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71024-2",
+  "name": "Vintage Minnie",
+  "img": "./img/71024-2.jpg",
+  "year": 2019,
+  "themeId": "677",
+  "themes": ["535", "677"],
+  "parts": 7,
+  "wishlist": false
+}

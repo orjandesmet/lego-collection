@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "76908-1",
+  "name": "Lamborghini Countach",
+  "img": "./img/76908-1.jpg",
+  "year": 2022,
+  "themeId": "601",
+  "themes": ["601"],
+  "parts": 262,
+  "wishlist": false
+}

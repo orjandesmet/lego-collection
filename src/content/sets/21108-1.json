@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "21108-1",
+  "name": "Ghostbusters Ecto-1",
+  "img": "./img/21108-1.jpg",
+  "year": 2014,
+  "themeId": "576",
+  "themes": ["576"],
+  "parts": 508,
+  "wishlist": false
+}

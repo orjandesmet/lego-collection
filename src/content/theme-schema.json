@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Lego Theme",
+  "description": "JSON Schema for a Lego Theme",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "pattern": "rebrickable"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "\\d+"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "string",
+      "pattern": "\\d+"
+    }
+  },
+  "required": ["source", "id", "name"]
+}

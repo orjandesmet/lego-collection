@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71027-10",
+  "name": "Martial Arts Boy",
+  "img": "./img/71027-10.jpg",
+  "year": 2020,
+  "themeId": "692",
+  "themes": ["535", "692"],
+  "parts": 6,
+  "wishlist": false
+}

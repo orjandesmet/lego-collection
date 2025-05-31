@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71026-8",
+  "name": "Green Lantern",
+  "img": "./img/71026-8.jpg",
+  "year": 2020,
+  "themeId": "684",
+  "themes": ["535", "684"],
+  "parts": 9,
+  "wishlist": false
+}

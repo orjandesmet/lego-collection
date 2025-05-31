@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "60285-1",
+  "name": "Sports Car",
+  "img": "./img/60285-1.jpg",
+  "year": 2021,
+  "themeId": "52",
+  "themes": ["52"],
+  "parts": 89,
+  "wishlist": false
+}

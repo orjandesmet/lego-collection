@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71034-5",
+  "name": "Holiday Elf",
+  "img": "./img/71034-5.jpg",
+  "year": 2022,
+  "themeId": "725",
+  "themes": ["535", "725"],
+  "parts": 10,
+  "wishlist": false
+}

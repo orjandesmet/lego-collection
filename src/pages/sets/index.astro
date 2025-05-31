@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import LegoSetListItem from '@components/LegoSetListItem.astro';
+import LegoBody from '@layouts/LegoBody.astro';
+import '@astrojs/tailwind/base.css';
+
+const allLegoSets = await getCollection('sets');
+const pageTitle = 'Lego sets';
+const wishlistSets = allLegoSets.filter(({ data: { wishlist } }) => !!wishlist);
+const ownedSets = allLegoSets.filter(({ data: { wishlist } }) => !wishlist);
+---
+
+<BaseLayout pageTitle={pageTitle} withTailwind>
+  <LegoBody pageTitle={pageTitle} showBreadcrumb>
+    <h2
+      class="max-w-screen-xl mx-auto px-2 md:px-4 text-xl text-gray-500 datk:text-slate-400"
+    >
+      Wishlist
+    </h2>
+    <ul
+      class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4"
+    >
+      {
+        wishlistSets.map((set) => (
+          <li>
+            <LegoSetListItem
+              collection="sets"
+              legoSetData={set.data}
+              setId={set.id}
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <h2
+      class="max-w-screen-xl mx-auto px-2 md:px-4 text-xl text-gray-500 datk:text-slate-400"
+    >
+      Owned
+    </h2>
+    <ul
+      class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4"
+    >
+      {
+        ownedSets.map((set) => (
+          <li>
+            <LegoSetListItem
+              collection="sets"
+              legoSetData={set.data}
+              setId={set.id}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </LegoBody>
+</BaseLayout>

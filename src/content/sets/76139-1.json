@@ -1,0 +1,19 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "76139-1",
+  "name": "1989 Batmobile",
+  "img": "./img/76139-1.jpg",
+  "year": 2019,
+  "themeId": "698",
+  "themes": ["695", "697", "698"],
+  "parts": 3310,
+  "wishlist": false,
+  "dateStarted": "2021-09-20",
+  "dateFinished": "2021-09-27",
+  "totalTimeSpent": {
+    "hours": 6,
+    "minutes": 57,
+    "seconds": 50
+  }
+}

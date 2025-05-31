@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71047-8",
+  "name": "Strahd von Zarovich",
+  "img": "./img/71047-8.jpg",
+  "year": 2024,
+  "themeId": "767",
+  "themes": ["535", "767"],
+  "parts": 9,
+  "wishlist": false
+}

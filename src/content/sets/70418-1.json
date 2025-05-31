@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "70418-1",
+  "name": "J.B's Ghost Lab",
+  "img": "./img/70418-1.jpg",
+  "year": 2019,
+  "themeId": "676",
+  "themes": ["676"],
+  "parts": 175,
+  "wishlist": false
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71032-12",
+  "name": "Wheelchair Racer",
+  "img": "./img/71032-12.jpg",
+  "year": 2022,
+  "themeId": "718",
+  "themes": ["535", "718"],
+  "parts": 11,
+  "wishlist": false
+}

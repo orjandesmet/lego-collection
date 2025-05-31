@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71026-3",
+  "name": "Aquaman",
+  "img": "./img/71026-3.jpg",
+  "year": 2020,
+  "themeId": "684",
+  "themes": ["535", "684"],
+  "parts": 8,
+  "wishlist": false
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71024-7",
+  "name": "Chip",
+  "img": "./img/71024-7.jpg",
+  "year": 2019,
+  "themeId": "677",
+  "themes": ["535", "677"],
+  "parts": 6,
+  "wishlist": false
+}

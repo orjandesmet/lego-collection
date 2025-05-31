@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71019-11",
+  "name": "Shark Army General #1",
+  "img": "./img/71019-11.jpg",
+  "year": 2017,
+  "themeId": "618",
+  "themes": ["535", "618"],
+  "parts": 8,
+  "wishlist": false
+}

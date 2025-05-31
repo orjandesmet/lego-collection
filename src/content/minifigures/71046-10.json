@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71046-10",
+  "name": "Alien Beetlezoid",
+  "img": "./img/71046-10.jpg",
+  "year": 2024,
+  "themeId": "762",
+  "themes": ["535", "762"],
+  "parts": 7,
+  "wishlist": false
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71007-9",
+  "name": "Jester",
+  "img": "./img/71007-9.jpg",
+  "year": 2014,
+  "themeId": "548",
+  "themes": ["535", "548"],
+  "parts": 7,
+  "wishlist": false
+}

@@ -1,0 +1,58 @@
+name: 'lego-set'
+
+on:
+  workflow_dispatch:
+    inputs:
+      setNumber:
+        description: 'Set number'
+        required: true
+        type: string
+      wishlist:
+        description: 'Should be on wishlist'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  create_branch_and_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Create a new branch
+        run: git checkout -b set-${{ inputs.setNumber }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --dev]
+
+      - name: Fetch set data
+        env:
+          REBRICKABLE_API: ${{ secrets.REBRICKABLE_API }}
+        run: |
+          node ./add-lego-set.js ${{ inputs.setNumber }} ${{ inputs.wishlist }}
+        working-directory: './tools'
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add .
+          git commit -m "Add set ${{ inputs.setNumber }}"
+          git push origin set-${{ inputs.setNumber }}
+        working-directory: ./src/content
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create --base main --head set-${{ inputs.setNumber }} --title "Add set ${{ inputs.setNumber }}" --body "Automatic PR to add set ${{ inputs.setNumber }} to the collection."

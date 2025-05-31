@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71017-3",
+  "name": "Fairy Batman",
+  "img": "./img/71017-3.jpg",
+  "year": 2017,
+  "themeId": "609",
+  "themes": ["535", "609"],
+  "parts": 8,
+  "wishlist": false
+}

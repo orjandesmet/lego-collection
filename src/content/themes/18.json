@@ -1,0 +1,7 @@
+{
+  "$schema": "../theme-schema.json",
+  "source": "rebrickable",
+  "id": "18",
+  "name": "Star Wars",
+  "parentId": "1"
+}

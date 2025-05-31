@@ -1,0 +1,12 @@
+{
+  "$schema": "../../",
+  "source": "rebrickable",
+  "setNumber": "71005-1",
+  "name": "Homer Simpson",
+  "img": "./img/71005-1.jpg",
+  "year": 2014,
+  "themeId": "550",
+  "themes": ["535", "550"],
+  "parts": 6,
+  "wishlist": false
+}

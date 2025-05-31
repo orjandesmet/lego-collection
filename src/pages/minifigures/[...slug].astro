@@ -1,0 +1,42 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import LegoSetDetail from '@components/LegoSetDetail.astro';
+import LegoSetRecirculation from '@components/LegoSetRecirculation.astro';
+import { legoSetUtil } from '@utils/setUtil';
+import LegoBody from '@layouts/LegoBody.astro';
+import '@astrojs/tailwind/base.css';
+
+export async function getStaticPaths() {
+  const legoSets = await getCollection('minifigures');
+  return legoSets.map((entry, _, arr) => ({
+    params: { slug: entry.id },
+    props: {
+      legoSet: entry,
+      moreSets: legoSetUtil.populateOtherSets(entry, arr, 12),
+    },
+  }));
+}
+
+// An interface or type with this name is automatically used in Astro.props
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { legoSet, moreSets } = Astro.props;
+const pageTitle = legoSet.data.name;
+---
+
+<BaseLayout pageTitle={pageTitle} withTailwind>
+  <LegoBody pageTitle={pageTitle}>
+    <LegoSetDetail collection="minifigures" legoSetData={legoSet.data} />
+    {
+      moreSets && (
+        <LegoSetRecirculation
+          collection="minifigures"
+          title="Other minifigures with this theme"
+          sets={moreSets}
+        />
+      )
+    }
+  </LegoBody>
+</BaseLayout>

@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "8831-12",
+  "name": "Computer Programmer",
+  "img": "./img/8831-12.jpg",
+  "year": 2012,
+  "themeId": "542",
+  "themes": ["535", "542"],
+  "parts": 7,
+  "wishlist": false
+}

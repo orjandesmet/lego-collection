@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71037-2",
+  "name": "Robot Warrior",
+  "img": "./img/71037-2.jpg",
+  "year": 2023,
+  "themeId": "743",
+  "themes": ["535", "743"],
+  "parts": 13,
+  "wishlist": false
+}

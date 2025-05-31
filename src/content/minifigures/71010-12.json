@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71010-12",
+  "name": "Monster Rocker",
+  "img": "./img/71010-12.jpg",
+  "year": 2015,
+  "themeId": "552",
+  "themes": ["535", "552"],
+  "parts": 6,
+  "wishlist": false
+}

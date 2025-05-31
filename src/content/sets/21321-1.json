@@ -1,0 +1,19 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "21321-1",
+  "name": "International Space Station",
+  "img": "./img/21321-1.jpg",
+  "year": 2020,
+  "themeId": "576",
+  "themes": ["576"],
+  "parts": 864,
+  "wishlist": false,
+  "dateStarted": "2023-01-04",
+  "dateFinished": "2023-01-06",
+  "totalTimeSpent": {
+    "hours": 1,
+    "minutes": 35,
+    "seconds": 16
+  }
+}

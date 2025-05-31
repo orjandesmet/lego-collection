@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71020-15",
+  "name": "Apache Chief",
+  "img": "./img/71020-15.jpg",
+  "year": 2018,
+  "themeId": "711",
+  "themes": ["535", "711"],
+  "parts": 6,
+  "wishlist": false
+}

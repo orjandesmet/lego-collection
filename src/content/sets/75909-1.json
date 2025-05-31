@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "75909-1",
+  "name": "McLaren P1",
+  "img": "./img/75909-1.jpg",
+  "year": 2015,
+  "themeId": "601",
+  "themes": ["601"],
+  "parts": 171,
+  "wishlist": false
+}

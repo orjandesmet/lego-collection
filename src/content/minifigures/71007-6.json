@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71007-6",
+  "name": "Space Miner",
+  "img": "./img/71007-6.jpg",
+  "year": 2014,
+  "themeId": "548",
+  "themes": ["535", "548"],
+  "parts": 9,
+  "wishlist": false
+}

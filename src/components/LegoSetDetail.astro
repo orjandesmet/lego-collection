@@ -1,0 +1,51 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import LegoSetInfoBlock from './LegoSetInfoBlock.astro';
+import LegoSetHeader from './LegoSetHeader.astro';
+import LegoSetImage from './LegoSetImage.astro';
+
+type Props = {
+  collection: 'sets' | 'minifigures';
+  legoSetData: CollectionEntry<'sets' | 'minifigures'>['data'];
+};
+const { collection, legoSetData } = Astro.props;
+
+function stringifyBuildTime(
+  totalTimeSpent: Props['legoSetData']['totalTimeSpent']
+): string {
+  if (!totalTimeSpent) {
+    return '';
+  }
+  let buildTime = `${totalTimeSpent.minutes}m`;
+  if (totalTimeSpent.hours) {
+    buildTime = `${totalTimeSpent.hours}h ${buildTime}`;
+  }
+  return buildTime;
+}
+const themes = await getCollection('themes');
+
+const buildTime = stringifyBuildTime(legoSetData.totalTimeSpent);
+const setNumber = legoSetData.setNumber.split('-')[0];
+const taxonomy = legoSetData.themes
+  .map((theme) => themes.find((t) => t.id === theme.id)?.data.name)
+  .join(' - ');
+const isWishlist = legoSetData.wishlist ?? false;
+---
+
+<article class="bg-white dark:bg-transparent">
+  <LegoSetHeader
+    title={legoSetData.name}
+    taxonomy={taxonomy}
+    wishlist={isWishlist}
+    backButton=`/${collection}`
+  />
+  <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
+  <section class="py-4">
+    <div class="w-fit mx-auto flex gap-8">
+      <LegoSetInfoBlock title="Set" value={setNumber} />
+      <LegoSetInfoBlock title="# brick" value={legoSetData.parts} />
+      <LegoSetInfoBlock title="Year" value={legoSetData.year} />
+      {buildTime && <LegoSetInfoBlock title="Build time" value={buildTime} />}
+    </div>
+  </section>
+</article>

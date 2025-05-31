@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71046-4",
+  "name": "Retro Space Heroine",
+  "img": "./img/71046-4.jpg",
+  "year": 2024,
+  "themeId": "762",
+  "themes": ["535", "762"],
+  "parts": 8,
+  "wishlist": false
+}

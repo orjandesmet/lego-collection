@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import LegoSetImage from './LegoSetImage.astro';
+
+type Props = {
+  collection: 'sets' | 'minifigures';
+  legoSetData: CollectionEntry<'sets' | 'minifigures'>['data'];
+  setId: string;
+};
+const { collection, legoSetData, setId } = Astro.props;
+const isWishlist = legoSetData.wishlist ?? false;
+---
+
+<a class="group" href=`/${collection}/${setId}`>
+  <article
+    data-wishlist={isWishlist}
+    class="flex flex-col gap-2 pb-2 overflow-hidden bg-white dark:bg-slate-700 rounded-xl"
+  >
+    <LegoSetImage img={legoSetData.img} alt={legoSetData.name} small />
+    <header class="mx-1 md:mx-2">
+      <h4
+        class="text-sm group-hover:text-sky-500 group-hover:underline underline-offset-2 dark:text-sky-300"
+      >
+        {legoSetData.name}
+      </h4>
+    </header>
+  </article>
+</a>
+<style>
+  [data-wishlist='true'] {
+    position: relative;
+  }
+  [data-wishlist='true']::before {
+    content: '★';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: inline-block;
+    margin-right: 4px;
+    color: rgb(250, 202, 21);
+    z-index: 1;
+  }
+</style>

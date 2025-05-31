@@ -1,0 +1,7 @@
+{
+  "$schema": "../theme-schema.json",
+  "source": "rebrickable",
+  "id": "88",
+  "name": "Launch Command",
+  "parentId": "50"
+}

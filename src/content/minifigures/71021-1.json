@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71021-1",
+  "name": "Elephant Costume Girl",
+  "img": "./img/71021-1.jpg",
+  "year": 2018,
+  "themeId": "622",
+  "themes": ["535", "622"],
+  "parts": 7,
+  "wishlist": false
+}

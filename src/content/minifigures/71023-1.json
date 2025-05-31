@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71023-1",
+  "name": "Awesome Remix Emmet",
+  "img": "./img/71023-1.jpg",
+  "year": 2019,
+  "themeId": "675",
+  "themes": ["535", "675"],
+  "parts": 7,
+  "wishlist": false
+}

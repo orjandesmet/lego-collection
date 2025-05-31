@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "30529-1",
+  "name": "Mini Master-Building Emmet",
+  "img": "./img/30529-1.jpg",
+  "year": 2019,
+  "themeId": "670",
+  "themes": ["578", "670"],
+  "parts": 49,
+  "wishlist": false
+}

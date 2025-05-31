@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71029-3",
+  "name": "Shipwreck Survivor",
+  "img": "./img/71029-3.jpg",
+  "year": 2021,
+  "themeId": "712",
+  "themes": ["535", "712"],
+  "parts": 9,
+  "wishlist": false
+}

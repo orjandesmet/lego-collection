@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71017-5",
+  "name": "Vacation Batman",
+  "img": "./img/71017-5.jpg",
+  "year": 2017,
+  "themeId": "609",
+  "themes": ["535", "609"],
+  "parts": 8,
+  "wishlist": false
+}

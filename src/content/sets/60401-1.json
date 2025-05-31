@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "60401-1",
+  "name": "Construction Steamroller",
+  "img": "./img/60401-1.jpg",
+  "year": 2024,
+  "themeId": "56",
+  "themes": ["52", "56"],
+  "parts": 78,
+  "wishlist": false
+}

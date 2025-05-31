@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "4918-1",
+  "name": "Mini Flyers",
+  "img": "./img/4918-1.jpg",
+  "year": 2007,
+  "themeId": "672",
+  "themes": ["22", "672"],
+  "parts": 76,
+  "wishlist": false
+}

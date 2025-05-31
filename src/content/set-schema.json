@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Lego Set",
+  "description": "JSON Schema for a Lego Set",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "pattern": "rebrickable"
+    },
+    "setNumber": {
+      "type": "string",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "img": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1970
+    },
+    "themeId": {
+      "type": "string",
+      "pattern": "\\d+"
+    },
+    "themes": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "\\d+"
+        }
+      ],
+      "minitems": 1,
+      "uniqueItems": true
+    },
+    "wishlist": {
+      "type": "boolean"
+    },
+    "dateStarted": {
+      "type": "string",
+      "pattern": "\\d{4}-\\d{2}-\\d{2}"
+    },
+    "dateFinished": {
+      "type": "string",
+      "pattern": "\\d{4}-\\d{2}-\\d{2}"
+    },
+    "totalTimeSpent": {
+      "type": "object",
+      "properties": {
+        "hours": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minutes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "seconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "required": [
+    "source",
+    "setNumber",
+    "name",
+    "img",
+    "year",
+    "themeId",
+    "themes"
+  ]
+}

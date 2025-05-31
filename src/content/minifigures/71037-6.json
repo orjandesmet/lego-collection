@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71037-6",
+  "name": "T-Rex Costume Fan",
+  "img": "./img/71037-6.jpg",
+  "year": 2023,
+  "themeId": "743",
+  "themes": ["535", "743"],
+  "parts": 6,
+  "wishlist": false
+}

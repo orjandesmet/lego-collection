@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "21303-2",
+  "name": "WALL•E [Fixed Neck Version]",
+  "img": "./img/21303-2.jpg",
+  "year": 2015,
+  "themeId": "576",
+  "themes": ["576"],
+  "parts": 676,
+  "wishlist": false
+}

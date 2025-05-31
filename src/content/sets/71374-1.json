@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71374-1",
+  "name": "Nintendo Entertainment System",
+  "img": "./img/71374-1.jpg",
+  "year": 2020,
+  "themeId": "690",
+  "themes": ["690"],
+  "parts": 2646,
+  "wishlist": false
+}

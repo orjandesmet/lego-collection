@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71002-6",
+  "name": "Gingerbread Man",
+  "img": "./img/71002-6.jpg",
+  "year": 2013,
+  "themeId": "547",
+  "themes": ["535", "547"],
+  "parts": 5,
+  "wishlist": false
+}

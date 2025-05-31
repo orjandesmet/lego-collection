@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71022-9",
+  "name": "Lord Voldemort",
+  "img": "./img/71022-9.jpg",
+  "year": 2018,
+  "themeId": "656",
+  "themes": ["535", "656"],
+  "parts": 6,
+  "wishlist": false
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "40223-1",
+  "name": "Snowglobe",
+  "img": "./img/40223-1.jpg",
+  "year": 2016,
+  "themeId": "227",
+  "themes": ["206", "227"],
+  "parts": 215,
+  "wishlist": false
+}

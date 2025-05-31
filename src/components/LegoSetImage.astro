@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  img: CollectionEntry<'sets' | 'minifigures'>['data']['img'];
+  alt: string;
+  small?: boolean;
+};
+const { img, alt, small } = Astro.props;
+const classNames = ['p-2', 'mx-auto'];
+if (small) {
+  classNames.push('h-24', 'sm:h-32', 'w-auto', 'max-w-full');
+} else {
+  classNames.push(
+    'w-full',
+    'max-w-screen-md',
+    'px-20',
+    'bg-white',
+    'rounded-lg'
+  );
+}
+---
+
+<figure class=`relative ${small ? 'bg-white rounded-lg overflow-hidden' : ''}`>
+  <Image
+    src={img}
+    alt={`Image for ${alt}`}
+    class={classNames.join(' ')}
+    loading={small ? 'lazy' : 'eager'}
+    decoding="async"
+  />
+  <div
+    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-gradient-to-b dark:bg-gradient-to-t opacity-10 pointer-events-none from-black to-white"
+  >
+  </div>
+</figure>

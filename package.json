@@ -1,0 +1,50 @@
+{
+  "name": "orjandev-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "type-check": "astro check && pnpm tsc --noEmit",
+    "lint": "eslint src --fix",
+    "format": "prettier . --write",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "echo \"Testing... not, really though\"",
+    "astro": "astro",
+    "lint-staged": "lint-staged",
+    "pre-commit": "husky precommit",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.7.4",
+    "astro-robots": "^2.3.1",
+    "astro-robots-txt": "^1.0.0",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^9.25.1",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "globals": "^15.15.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.5.1",
+    "node-fetch": "^3.3.2",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^7.18.0"
+  },
+  "lint-staged": {
+    "*.{css,html,json,cjs,mjs,js,ts,astro,yaml,md}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,astro}": "eslint --fix"
+  }
+}

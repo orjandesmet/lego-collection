@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71023-7",
+  "name": "Hula Lula",
+  "img": "./img/71023-7.jpg",
+  "year": 2019,
+  "themeId": "675",
+  "themes": ["535", "675"],
+  "parts": 8,
+  "wishlist": false
+}

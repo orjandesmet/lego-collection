@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "40594-1",
+  "name": "Houses of the World 3",
+  "img": "./img/40594-1.jpg",
+  "year": 2023,
+  "themeId": "598",
+  "themes": ["598"],
+  "parts": 278,
+  "wishlist": false
+}

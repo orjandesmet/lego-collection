@@ -1,0 +1,63 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import LegoSetImage from './LegoSetImage.astro';
+
+type Props = {
+  collection: 'sets' | 'minifigures';
+  legoSetData: CollectionEntry<'sets' | 'minifigures'>['data'];
+  setId: string;
+};
+
+const themes = await getCollection('themes');
+
+const { collection, legoSetData, setId } = Astro.props;
+const setNumber = legoSetData.setNumber.split('-')[0];
+const taxonomy = legoSetData.themes
+  .map((t) => themes.find((theme) => theme.id === t.id)?.data?.name)
+  .join(' - ');
+const isWishlist = legoSetData.wishlist ?? false;
+---
+
+<a class="group" href=`/${collection}/${setId}`>
+  <article
+    class="flex flex-row gap-2 p-2 overflow-hidden bg-white dark:bg-slate-700 rounded-xl"
+  >
+    <div data-wishlist={isWishlist}>
+      <LegoSetImage img={legoSetData.img} alt={legoSetData.name} small />
+    </div>
+    <header class="mx-1 md:mx-2 flex flex-col justify-between">
+      <div>
+        {
+          taxonomy && (
+            <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400">
+              {taxonomy}
+            </p>
+          )
+        }
+        <h4
+          class="text-sm sm:text-md group-hover:underline underline-offset-2 group-hover:text-sky-500 dark:text-sky-300"
+        >
+          {legoSetData.name}
+        </h4>
+      </div>
+      <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400">
+        <span class="text-gray-300 after:content-['_']">#</span>{setNumber}
+      </p>
+    </header>
+  </article>
+</a>
+<style>
+  [data-wishlist='true'] {
+    position: relative;
+  }
+  [data-wishlist='true']::before {
+    content: '★';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: inline-block;
+    margin-right: 4px;
+    color: rgb(250, 202, 21);
+    z-index: 1;
+  }
+</style>

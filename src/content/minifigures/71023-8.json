@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71023-8",
+  "name": "Watermelon Dude",
+  "img": "./img/71023-8.jpg",
+  "year": 2019,
+  "themeId": "675",
+  "themes": ["535", "675"],
+  "parts": 6,
+  "wishlist": false
+}

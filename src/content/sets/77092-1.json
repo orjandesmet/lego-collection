@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "77092-1",
+  "name": "Great Deku Tree 2-in-1",
+  "img": "./img/77092-1.jpg",
+  "year": 2024,
+  "themeId": "764",
+  "themes": ["764"],
+  "parts": 2500,
+  "wishlist": false
+}

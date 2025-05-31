@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "76013-1",
+  "name": "Batman: The Joker Steam Roller",
+  "img": "./img/76013-1.jpg",
+  "year": 2014,
+  "themeId": "697",
+  "themes": ["695", "697"],
+  "parts": 488,
+  "wishlist": false
+}

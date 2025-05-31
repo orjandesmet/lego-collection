@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "70901-1",
+  "name": "Mr. Freeze Ice Attack",
+  "img": "./img/70901-1.jpg",
+  "year": 2017,
+  "themeId": "708",
+  "themes": ["695", "697", "708"],
+  "parts": 201,
+  "wishlist": false
+}

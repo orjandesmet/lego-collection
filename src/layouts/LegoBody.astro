@@ -1,0 +1,19 @@
+---
+type Props = {
+  pageTitle: string;
+  showBreadcrumb?: boolean;
+};
+
+const { pageTitle, showBreadcrumb } = Astro.props;
+---
+
+<body class="bg-slate-100 dark:bg-slate-900 dark:text-slate-400">
+  {
+    showBreadcrumb && (
+      <h1 class="max-w-screen-xl mx-auto px-2 md:px-4 py-4 text-xl font-bold text-sky-700 dark:text-sky-300">
+        {pageTitle}
+      </h1>
+    )
+  }
+  <slot />
+</body>

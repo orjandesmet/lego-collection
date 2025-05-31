@@ -1,0 +1,7 @@
+{
+  "$schema": "../theme-schema.json",
+  "source": "rebrickable",
+  "id": "20",
+  "name": "Throwbot Slizer",
+  "parentId": "1"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "76182-1",
+  "name": "Batman Cowl",
+  "img": "./img/76182-1.jpg",
+  "year": 2021,
+  "themeId": "697",
+  "themes": ["695", "697"],
+  "parts": 410,
+  "wishlist": false,
+  "dateStarted": "2021-12-27",
+  "dateFinished": "2021-12-27",
+  "totalTimeSpent": {
+    "hours": 0,
+    "minutes": 43,
+    "seconds": 34
+  }
+}

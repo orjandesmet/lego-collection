@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import LegoSetListItem from '@components/LegoSetListItem.astro';
+import LegoBody from '@layouts/LegoBody.astro';
+import '@astrojs/tailwind/base.css';
+
+const allLegoMinifigures = await getCollection('minifigures');
+const allThemes = await getCollection('themes');
+
+const themesInMinifigures = new Set(
+  allLegoMinifigures.map((minifigure) => minifigure.data.themeId.id)
+);
+
+const pageTitle = 'Lego minifigures';
+---
+
+<BaseLayout pageTitle={pageTitle} withTailwind>
+  <LegoBody pageTitle={pageTitle} showBreadcrumb>
+    {
+      Array.from(themesInMinifigures)
+        .sort()
+        .map((themeId) => (
+          <section>
+            <h2 class="max-w-screen-xl mx-auto px-2 md:px-4 text-md font-bold text-sky-700 dark:text-sky-300">
+              {allThemes.find((theme) => theme.id === themeId)?.data?.name}
+            </h2>
+            <ul class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4 ">
+              {allLegoMinifigures
+                .filter((minifigure) => minifigure.data.themeId.id === themeId)
+                .map((minifigure) => (
+                  <li>
+                    <LegoSetListItem
+                      collection="minifigures"
+                      legoSetData={minifigure.data}
+                      setId={minifigure.id}
+                    />
+                  </li>
+                ))}
+            </ul>
+          </section>
+        ))
+    }
+  </LegoBody>
+</BaseLayout>
