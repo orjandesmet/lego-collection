@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "285-1",
+  "name": "Medium Basic Set",
+  "img": "./img/285-1.jpg",
+  "year": 1966,
+  "themeId": "756",
+  "themes": ["365", "756"],
+  "parts": 288,
+  "wishlist": false
+}
