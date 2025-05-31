@@ -14,14 +14,11 @@ on:
         default: false
 
 jobs:
-  create_branch_and_pr:
+  add-lego-set:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-
-      - name: Create a new branch
-        run: git checkout -b set-${{ inputs.setNumber }}
 
       - uses: actions/setup-node@v3
         with:
@@ -38,6 +35,7 @@ jobs:
       - name: Fetch set data
         env:
           REBRICKABLE_API: ${{ secrets.REBRICKABLE_API }}
+        id: fetch-set
         run: |
           node ./add-lego-set.js ${{ inputs.setNumber }} ${{ inputs.wishlist }}
         working-directory: './tools'
@@ -47,12 +45,6 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
-          git commit -m "Add set ${{ inputs.setNumber }}"
-          git push origin set-${{ inputs.setNumber }}
+          git commit -m "Add ${{ steps.fetch-set.outputs.collection }} ${{ steps.fetch-set.outputs.setName }} (${{ inputs.setNumber }})"
+          git push
         working-directory: ./src/content
-
-      - name: Create pull request
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr create --base main --head set-${{ inputs.setNumber }} --title "Add set ${{ inputs.setNumber }}" --body "Automatic PR to add set ${{ inputs.setNumber }} to the collection."
