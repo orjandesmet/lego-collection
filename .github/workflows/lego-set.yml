@@ -35,6 +35,7 @@ jobs:
       - name: Fetch set data
         env:
           REBRICKABLE_API: ${{ secrets.REBRICKABLE_API }}
+        id: fetch-set
         run: |
           node ./add-lego-set.js ${{ inputs.setNumber }} ${{ inputs.wishlist }}
         working-directory: './tools'
@@ -44,6 +45,6 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
-          git commit -m "Add set ${{ inputs.setNumber }}"
+          git commit -m "Add ${{ steps.fetch-set.outputs.collection }} ${{ steps.fetch-set.outputs.setName }} (${{ inputs.setNumber }})"
           git push
         working-directory: ./src/content

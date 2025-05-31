@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@actions/core": "^1.11.1",
     "@astrojs/check": "^0.9.4",
     "@astrojs/netlify": "^6.3.0",
     "@astrojs/tailwind": "^6.0.2",

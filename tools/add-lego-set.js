@@ -2,6 +2,7 @@ import { writeFileSync, readFileSync, createWriteStream, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fetch, { Headers } from 'node-fetch';
+import { setOutput } from '@actions/core';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -30,6 +31,9 @@ async function fetchFromRebrickable(setNumber, isWishlist) {
     ),
     JSON.stringify(set, undefined, 2)
   );
+  setOutput("setNumber", set.setNumber);
+  setOutput("setName", set.name);
+  setOutput("collection", setNumber.startsWith('71') ? 'minifigure' : 'set');
 }
 
 async function getLegoSet(setNumber) {
