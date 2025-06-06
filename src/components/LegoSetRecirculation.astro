@@ -5,9 +5,10 @@ type Props = {
   collection: 'sets' | 'minifigures';
   title: string;
   sets: Array<CollectionEntry<'sets' | 'minifigures'>>;
+  showVariant?: boolean;
 };
 
-const { collection, title, sets } = Astro.props;
+const { collection, title, sets, showVariant } = Astro.props;
 ---
 
 <aside
@@ -24,6 +25,7 @@ const { collection, title, sets } = Astro.props;
                 collection={collection}
                 legoSetData={set.data}
                 setId={set.id}
+                showVariant={showVariant}
               />
             </li>
           ))

@@ -23,7 +23,16 @@ export const legoSetUtil = {
         wishlistScore: set.data.wishlist ? 10 : 0,
       }))
       .filter(({ set, score }) => score !== 0 && set.id !== baseSet.id)
-      .sort((a, b) => b.score - a.score + (b.wishlistScore - a.wishlistScore))
+      .sort((a, b) => {
+        const variantA = Number(a.set.id.split('-')[1] || '');
+        const variantB = Number(b.set.id.split('-')[1] || '');
+        return (
+          b.score -
+          a.score +
+          (b.wishlistScore - a.wishlistScore) +
+          (variantA - variantB) * 0.01
+        );
+      })
       .map(({ set }) => set);
     if (sets.length) {
       return sets.slice(0, max);

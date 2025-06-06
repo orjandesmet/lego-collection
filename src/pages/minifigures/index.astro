@@ -20,6 +20,7 @@ const pageTitle = 'Lego minifigures';
     {
       Array.from(themesInMinifigures)
         .sort()
+        .toReversed()
         .map((themeId) => (
           <section>
             <h2 class="max-w-screen-xl mx-auto px-2 md:px-4 text-md font-bold text-sky-700 dark:text-sky-300">
@@ -28,12 +29,18 @@ const pageTitle = 'Lego minifigures';
             <ul class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4 ">
               {allLegoMinifigures
                 .filter((minifigure) => minifigure.data.themeId.id === themeId)
+                .sort((a, b) => {
+                  const variantA = Number(a.data.setNumber.split('-')[1] || '');
+                  const variantB = Number(b.data.setNumber.split('-')[1] || '');
+                  return variantA - variantB;
+                })
                 .map((minifigure) => (
                   <li>
                     <LegoSetListItem
                       collection="minifigures"
                       legoSetData={minifigure.data}
                       setId={minifigure.id}
+                      showVariant
                     />
                   </li>
                 ))}
