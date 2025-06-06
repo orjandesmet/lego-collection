@@ -6,8 +6,9 @@ type Props = {
   collection: 'sets' | 'minifigures';
   legoSetData: CollectionEntry<'sets' | 'minifigures'>['data'];
   setId: string;
+  showVariant?: boolean;
 };
-const { collection, legoSetData, setId } = Astro.props;
+const { collection, legoSetData, setId, showVariant } = Astro.props;
 const isWishlist = legoSetData.wishlist ?? false;
 ---
 

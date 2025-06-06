@@ -6,12 +6,13 @@ type Props = {
   collection: 'sets' | 'minifigures';
   legoSetData: CollectionEntry<'sets' | 'minifigures'>['data'];
   setId: string;
+  showVariant?: boolean;
 };
 
 const themes = await getCollection('themes');
 
-const { collection, legoSetData, setId } = Astro.props;
-const setNumber = legoSetData.setNumber.split('-')[0];
+const { collection, legoSetData, setId, showVariant } = Astro.props;
+const [setNumber, variant] = legoSetData.setNumber.split('-');
 const taxonomy = legoSetData.themes
   .map((t) => themes.find((theme) => theme.id === t.id)?.data?.name)
   .join(' - ');
@@ -41,7 +42,9 @@ const isWishlist = legoSetData.wishlist ?? false;
         </h4>
       </div>
       <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400">
-        <span class="text-gray-300 after:content-['_']">#</span>{setNumber}
+        <span class="text-gray-300 after:content-['_']">#</span>{
+          showVariant ? `${setNumber} variant ${variant}` : setNumber
+        }
       </p>
     </header>
   </article>

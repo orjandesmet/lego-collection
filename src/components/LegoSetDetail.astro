@@ -25,11 +25,12 @@ function stringifyBuildTime(
 const themes = await getCollection('themes');
 
 const buildTime = stringifyBuildTime(legoSetData.totalTimeSpent);
-const setNumber = legoSetData.setNumber.split('-')[0];
+const [setNumber, variant] = legoSetData.setNumber.split('-');
 const taxonomy = legoSetData.themes
   .map((theme) => themes.find((t) => t.id === theme.id)?.data.name)
   .join(' - ');
 const isWishlist = legoSetData.wishlist ?? false;
+const showVariant = collection === 'minifigures';
 ---
 
 <article class="bg-white dark:bg-transparent">
@@ -42,8 +43,11 @@ const isWishlist = legoSetData.wishlist ?? false;
   <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
   <section class="py-4">
     <div class="w-fit mx-auto flex gap-8">
-      <LegoSetInfoBlock title="Set" value={setNumber} />
-      <LegoSetInfoBlock title="# brick" value={legoSetData.parts} />
+      <LegoSetInfoBlock
+        title={collection === 'sets' ? 'Set' : 'Minifigure N°'}
+        value={showVariant ? `${setNumber}-${variant}` : setNumber}
+      />
+      <LegoSetInfoBlock title="Pieces" value={legoSetData.parts} />
       <LegoSetInfoBlock title="Year" value={legoSetData.year} />
       {buildTime && <LegoSetInfoBlock title="Build time" value={buildTime} />}
     </div>
