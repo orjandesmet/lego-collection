@@ -1,12 +1,13 @@
-import { writeFileSync, readFileSync, createWriteStream, existsSync } from 'fs';
+import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fetch, { Headers } from 'node-fetch';
 import { setOutput } from '@actions/core';
+import './update-themes.js';
+import { downloadImage } from './internal/dowloadImage.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-import './update-themes.js';
 // argv[2]: setNumber: string
 // argv[3]: isWishlist: 'true' | 'false'
 fetchFromRebrickable(process.argv[2], process.argv[3]);
@@ -46,8 +47,9 @@ async function getLegoSet(setNumber) {
     `Found ${setNumber.startsWith('71') ? 'minifig' : 'set'} '${set.name}' on Rebrickable`
   );
   set.themes = getTheme(set.themeId);
-  await downloadImage(set.setNumber, set.img);
-  set.img = `./img/${set.setNumber}.jpg`;
+
+  const downloadedImg = await downloadImage(set.setNumber, set.img);
+  set.img = downloadedImg;
   return set;
 }
 
@@ -87,33 +89,6 @@ async function fetchLegoSet(setNumber) {
   }
   const setInfo = mapToLegoSet(await result.json());
   return setInfo;
-}
-
-async function downloadImage(setNumber, imgUrl) {
-  const result = await fetch(imgUrl);
-  if (!result.ok) {
-    writeFileSync(
-      resolve(__dirname, '..', 'errors.txt'),
-      `${setNumber} - ${imgUrl} - ${result.statusText}`
-    );
-    return;
-  }
-  const fileStream = createWriteStream(
-    resolve(
-      __dirname,
-      '..',
-      'src',
-      'content',
-      setNumber.startsWith('71') ? 'minifigs' : 'sets',
-      'img',
-      `${setNumber}.jpg`
-    )
-  );
-  await new Promise((resolve, reject) => {
-    result.body.pipe(fileStream);
-    result.body.on('error', reject);
-    fileStream.on('finish', resolve);
-  });
 }
 
 function mapToLegoSet(dto) {

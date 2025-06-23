@@ -1,37 +1,43 @@
 import { createWriteStream } from 'fs';
-import fetch, { Headers } from 'node-fetch';
+import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { resolve, dirname } from 'path';
+import { fileTypeFromBuffer } from 'file-type';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export async function downloadImage(setNumber, imgUrl) {
-  const headers = new Headers();
-  const api = process.env.REBRICKABLE_API;
-  headers.set('Accept', 'application/json');
-  headers.set('Authorization', `key ${api}`);
-
-  const result = await fetch(imgUrl, {
-    headers,
-  });
+  const result = await fetch(imgUrl);
   if (!result.ok) {
-    console.log(imgUrl);
-    throw Error(result.statusText);
+    writeFileSync(
+      resolve(__dirname, '..', '..', 'errors.txt'),
+      `${setNumber} - ${imgUrl} - ${result.statusText}`
+    );
+    return;
   }
+
+  // Read the response body as an ArrayBuffer and convert it to a Buffer
+  const arrayBuffer = await result.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+
+  // Detect the file type using file-type
+  const fileType = await fileTypeFromBuffer(buffer);
+  const resolvedExtension = fileType ? fileType.ext : 'bin';
+
   const fileStream = createWriteStream(
     resolve(
       __dirname,
+      '..',
       '..',
       'src',
       'content',
       setNumber.startsWith('71') ? 'minifigs' : 'sets',
       'img',
-      `${setNumber}.jpg`
+      `${setNumber}.${resolvedExtension}`
     )
   );
-  await new Promise((resolve, reject) => {
-    result.body.pipe(fileStream);
-    result.body.on('error', reject);
-    fileStream.on('finish', resolve);
-  });
+  // Write the buffer to the file stream
+  fileStream.write(buffer);
+  fileStream.end();
+  return `./img/${setNumber}.${resolvedExtension}`;
 }

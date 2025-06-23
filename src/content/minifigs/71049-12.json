@@ -3,7 +3,7 @@
   "source": "rebrickable",
   "setNumber": "71049-12",
   "name": "F1 Car",
-  "img": "./img/71049-12.jpg",
+  "img": "./img/71049-12.webp",
   "year": 2025,
   "themeId": "774",
   "themes": ["535", "774"],
