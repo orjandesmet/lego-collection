@@ -24,7 +24,7 @@ export async function downloadImage(setNumber, imgUrl) {
       '..',
       'src',
       'content',
-      setNumber.startsWith('71') ? 'minifigures' : 'sets',
+      setNumber.startsWith('71') ? 'minifigs' : 'sets',
       'img',
       `${setNumber}.jpg`
     )

@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 
-type LegoSet = CollectionEntry<'sets' | 'minifigures'>;
+type LegoSet = CollectionEntry<'sets' | 'minifigs'>;
 
 function scoreThemes(baseSet: LegoSet, themeIds: string[]) {
   return baseSet.data.themes

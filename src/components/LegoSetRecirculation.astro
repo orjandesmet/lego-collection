@@ -2,9 +2,9 @@
 import type { CollectionEntry } from 'astro:content';
 import LegoSetRecirculationItem from './LegoSetRecirculationItem.astro';
 type Props = {
-  collection: 'sets' | 'minifigures';
+  collection: 'sets' | 'minifigs';
   title: string;
-  sets: Array<CollectionEntry<'sets' | 'minifigures'>>;
+  sets: Array<CollectionEntry<'sets' | 'minifigs'>>;
   showVariant?: boolean;
 };
 

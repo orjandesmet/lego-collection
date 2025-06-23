@@ -5,20 +5,20 @@ import LegoSetListItem from '@components/LegoSetListItem.astro';
 import LegoBody from '@layouts/LegoBody.astro';
 import '@astrojs/tailwind/base.css';
 
-const allLegoMinifigures = await getCollection('minifigures');
+const allLegominifigs = await getCollection('minifigs');
 const allThemes = await getCollection('themes');
 
-const themesInMinifigures = new Set(
-  allLegoMinifigures.map((minifigure) => minifigure.data.themeId.id)
+const themesInminifigs = new Set(
+  allLegominifigs.map((minifig) => minifig.data.themeId.id)
 );
 
-const pageTitle = 'Lego minifigures';
+const pageTitle = 'Lego minifigs';
 ---
 
 <BaseLayout pageTitle={pageTitle} withTailwind>
   <LegoBody pageTitle={pageTitle} showBreadcrumb>
     {
-      Array.from(themesInMinifigures)
+      Array.from(themesInminifigs)
         .sort()
         .toReversed()
         .map((themeId) => (
@@ -27,19 +27,19 @@ const pageTitle = 'Lego minifigures';
               {allThemes.find((theme) => theme.id === themeId)?.data?.name}
             </h2>
             <ul class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4 ">
-              {allLegoMinifigures
-                .filter((minifigure) => minifigure.data.themeId.id === themeId)
+              {allLegominifigs
+                .filter((minifig) => minifig.data.themeId.id === themeId)
                 .sort((a, b) => {
                   const variantA = Number(a.data.setNumber.split('-')[1] || '');
                   const variantB = Number(b.data.setNumber.split('-')[1] || '');
                   return variantA - variantB;
                 })
-                .map((minifigure) => (
+                .map((minifig) => (
                   <li>
                     <LegoSetListItem
-                      collection="minifigures"
-                      legoSetData={minifigure.data}
-                      setId={minifigure.id}
+                      collection="minifigs"
+                      legoSetData={minifig.data}
+                      setId={minifig.id}
                       showVariant
                     />
                   </li>

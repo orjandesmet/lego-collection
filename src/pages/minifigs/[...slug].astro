@@ -10,7 +10,7 @@ import LegoBody from '@layouts/LegoBody.astro';
 import '@astrojs/tailwind/base.css';
 
 export async function getStaticPaths() {
-  const legoSets = await getCollection('minifigures');
+  const legoSets = await getCollection('minifigs');
   return legoSets.map((entry, _, arr) => ({
     params: { slug: entry.id },
     props: {
@@ -28,12 +28,12 @@ const pageTitle = legoSet.data.name;
 
 <BaseLayout pageTitle={pageTitle} withTailwind>
   <LegoBody pageTitle={pageTitle}>
-    <LegoSetDetail collection="minifigures" legoSetData={legoSet.data} />
+    <LegoSetDetail collection="minifigs" legoSetData={legoSet.data} />
     {
       moreSets && (
         <LegoSetRecirculation
-          collection="minifigures"
-          title="Other minifigures with this theme"
+          collection="minifigs"
+          title="Other minifigs with this theme"
           sets={moreSets}
           showVariant
         />
