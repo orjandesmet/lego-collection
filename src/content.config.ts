@@ -36,10 +36,10 @@ const legoSets = defineCollection({
     }),
 });
 
-const legoMinifigures = defineCollection({
+const legominifigs = defineCollection({
   loader: glob({
     pattern: '**/[^_]*.json',
-    base: './src/content/minifigures',
+    base: './src/content/minifigs',
   }),
   schema: ({ image }) =>
     z.object({
@@ -64,9 +64,8 @@ const legoMinifigures = defineCollection({
     }),
 });
 
-
 export const collections = {
-  'sets': legoSets,
-  'themes': legoThemes,
-  'minifigures': legoMinifigures,
+  sets: legoSets,
+  themes: legoThemes,
+  minifigs: legominifigs,
 };

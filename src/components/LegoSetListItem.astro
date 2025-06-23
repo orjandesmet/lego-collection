@@ -3,8 +3,8 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import LegoSetImage from './LegoSetImage.astro';
 
 type Props = {
-  collection: 'sets' | 'minifigures';
-  legoSetData: CollectionEntry<'sets' | 'minifigures'>['data'];
+  collection: 'sets' | 'minifigs';
+  legoSetData: CollectionEntry<'sets' | 'minifigs'>['data'];
   setId: string;
   showVariant?: boolean;
 };

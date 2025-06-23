@@ -26,14 +26,14 @@ async function fetchFromRebrickable(setNumber, isWishlist) {
       '..',
       'src',
       'content',
-      setNumber.startsWith('71') ? 'minifigures' : 'sets',
+      setNumber.startsWith('71') ? 'minifigs' : 'sets',
       `${set.setNumber}.json`
     ),
     JSON.stringify(set, undefined, 2)
   );
-  setOutput("setNumber", set.setNumber);
-  setOutput("setName", set.name);
-  setOutput("collection", setNumber.startsWith('71') ? 'minifigure' : 'set');
+  setOutput('setNumber', set.setNumber);
+  setOutput('setName', set.name);
+  setOutput('collection', setNumber.startsWith('71') ? 'minifig' : 'set');
 }
 
 async function getLegoSet(setNumber) {
@@ -43,7 +43,7 @@ async function getLegoSet(setNumber) {
   console.log(`Getting data from ${setNumber} from Rebrickable`);
   const set = await fetchLegoSet(`${setNumber}`);
   console.log(
-    `Found ${setNumber.startsWith('71') ? 'minifigure' : 'set'} '${set.name}' on Rebrickable`
+    `Found ${setNumber.startsWith('71') ? 'minifig' : 'set'} '${set.name}' on Rebrickable`
   );
   set.themes = getTheme(set.themeId);
   await downloadImage(set.setNumber, set.img);
@@ -104,7 +104,7 @@ async function downloadImage(setNumber, imgUrl) {
       '..',
       'src',
       'content',
-      setNumber.startsWith('71') ? 'minifigures' : 'sets',
+      setNumber.startsWith('71') ? 'minifigs' : 'sets',
       'img',
       `${setNumber}.jpg`
     )
