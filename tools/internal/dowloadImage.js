@@ -6,7 +6,7 @@ import { fileTypeFromBuffer } from 'file-type';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export async function downloadImage(setNumber, imgUrl) {
+export async function downloadImage(setNumber, isMinifig, imgUrl) {
   const result = await fetch(imgUrl);
   if (!result.ok) {
     writeFileSync(
@@ -31,7 +31,7 @@ export async function downloadImage(setNumber, imgUrl) {
       '..',
       'src',
       'content',
-      setNumber.startsWith('71') ? 'minifigs' : 'sets',
+      isMinifig ? 'minifigs' : 'sets',
       'img',
       `${setNumber}.${resolvedExtension}`
     )
