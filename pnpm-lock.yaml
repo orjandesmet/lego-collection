@@ -50,6 +50,9 @@ importers:
       eslint-plugin-jsx-a11y:
         specifier: ^6.10.2
         version: 6.10.2(eslint@9.25.1(jiti@1.21.7))
+      file-type:
+        specifier: ^21.0.0
+        version: 21.0.0
       globals:
         specifier: ^15.15.0
         version: 15.15.0
@@ -1400,6 +1403,19 @@ packages:
     resolution:
       {
         integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==,
+      }
+
+  '@tokenizer/inflate@0.2.7':
+    resolution:
+      {
+        integrity: sha512-MADQgmZT1eKjp06jpI2yozxaU9uVs4GzzgSL+uEq7bVcJ9V1ZXQkeGNql1fsSI0gMy1vhvNTNbUqrx+pZfJVmg==,
+      }
+    engines: { node: '>=18' }
+
+  '@tokenizer/token@0.3.0':
+    resolution:
+      {
+        integrity: sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==,
       }
 
   '@types/debug@4.1.12':
@@ -3202,12 +3218,25 @@ packages:
       }
     engines: { node: ^12.20 || >= 14.13 }
 
+  fflate@0.8.2:
+    resolution:
+      {
+        integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==,
+      }
+
   file-entry-cache@8.0.0:
     resolution:
       {
         integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==,
       }
     engines: { node: '>=16.0.0' }
+
+  file-type@21.0.0:
+    resolution:
+      {
+        integrity: sha512-ek5xNX2YBYlXhiUXui3D/BXa3LdqPmoLJ7rqEx2bKJ7EAUEfmXgW0Das7Dc6Nr9MvqaOnIqiPV0mZk/r/UpNAg==,
+      }
+    engines: { node: '>=20' }
 
   file-uri-to-path@1.0.0:
     resolution:
@@ -6119,6 +6148,13 @@ packages:
       }
     engines: { node: '>=8' }
 
+  strtok3@10.3.1:
+    resolution:
+      {
+        integrity: sha512-3JWEZM6mfix/GCJBBUrkA8p2Id2pBkyTkVCJKto55w080QBKZ+8R171fGrbiSp+yMO/u6F8/yUh7K4V9K+YCnw==,
+      }
+    engines: { node: '>=18' }
+
   sucrase@3.35.0:
     resolution:
       {
@@ -6245,6 +6281,13 @@ packages:
         integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==,
       }
     engines: { node: '>=8.0' }
+
+  token-types@6.0.0:
+    resolution:
+      {
+        integrity: sha512-lbDrTLVsHhOMljPscd0yitpozq7Ga2M5Cvez5AjGg8GASBjtt6iERCAJ93yommPmz62fb45oFIXHEZ3u9bfJEA==,
+      }
+    engines: { node: '>=14.16' }
 
   toml@3.0.0:
     resolution:
@@ -6413,6 +6456,13 @@ packages:
       {
         integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==,
       }
+
+  uint8array-extras@1.4.0:
+    resolution:
+      {
+        integrity: sha512-ZPtzy0hu4cZjv3z5NW9gfKnNLjoz4y6uv4HlelAjDK7sY/xOkKZv9xK/WQpcsBB3jEybChz9DPC2U/+cusjJVQ==,
+      }
+    engines: { node: '>=18' }
 
   ultrahtml@1.6.0:
     resolution:
@@ -7930,6 +7980,16 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  '@tokenizer/inflate@0.2.7':
+    dependencies:
+      debug: 4.4.0
+      fflate: 0.8.2
+      token-types: 6.0.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@tokenizer/token@0.3.0': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
@@ -9270,9 +9330,20 @@ snapshots:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.3.3
 
+  fflate@0.8.2: {}
+
   file-entry-cache@8.0.0:
     dependencies:
       flat-cache: 4.0.1
+
+  file-type@21.0.0:
+    dependencies:
+      '@tokenizer/inflate': 0.2.7
+      strtok3: 10.3.1
+      token-types: 6.0.0
+      uint8array-extras: 1.4.0
+    transitivePeerDependencies:
+      - supports-color
 
   file-uri-to-path@1.0.0: {}
 
@@ -11235,6 +11306,10 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
+  strtok3@10.3.1:
+    dependencies:
+      '@tokenizer/token': 0.3.0
+
   sucrase@3.35.0:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
@@ -11344,6 +11419,11 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
+  token-types@6.0.0:
+    dependencies:
+      '@tokenizer/token': 0.3.0
+      ieee754: 1.2.1
+
   toml@3.0.0: {}
 
   tr46@0.0.3: {}
@@ -11434,6 +11514,8 @@ snapshots:
   typescript@5.8.3: {}
 
   ufo@1.6.1: {}
+
+  uint8array-extras@1.4.0: {}
 
   ultrahtml@1.6.0: {}
 
