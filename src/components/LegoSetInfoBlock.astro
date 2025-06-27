@@ -1,11 +1,23 @@
 ---
 type Props = {
+  icon: 'book-open' | 'brick' | 'calendar' | 'pound' | 'stopwatch';
   title: string;
 };
-const { title } = Astro.props;
+const { icon, title } = Astro.props;
 ---
 
-<div class="flex flex-col text-center">
-  <p class="text-xs text-gray-500 dark:text-slate-400">{title}</p>
+<div class="flex flex-col justify-center items-center">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="text-gray-500 dark:text-slate-400"
+    width="48px"
+    height="48px"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    aria-label={title}
+  >
+    <use href={`/${icon}.svg#${icon}`}></use>
+  </svg>
   <p class="text-sm font-bold text-sky-700 dark:text-sky-300"><slot /></p>
 </div>
