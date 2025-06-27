@@ -42,14 +42,24 @@ const showVariant = collection === 'minifigs';
   />
   <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
   <section class="py-4">
-    <div class="w-fit mx-auto flex gap-8">
-      <LegoSetInfoBlock
-        title={collection === 'sets' ? 'Set' : 'minifig N°'}
-        value={showVariant ? `${setNumber}-${variant}` : setNumber}
-      />
-      <LegoSetInfoBlock title="Pieces" value={legoSetData.parts} />
-      <LegoSetInfoBlock title="Year" value={legoSetData.year} />
-      {buildTime && <LegoSetInfoBlock title="Build time" value={buildTime} />}
+    <div class="w-fit mx-auto flex items-end gap-8">
+      <LegoSetInfoBlock title={collection === 'sets' ? 'Set' : 'minifig N°'}
+        >{showVariant ? `${setNumber}-${variant}` : setNumber}</LegoSetInfoBlock
+      >
+      <LegoSetInfoBlock title="Pieces">{legoSetData.parts}</LegoSetInfoBlock>
+      <LegoSetInfoBlock title="Year">{legoSetData.year}</LegoSetInfoBlock>
+      {
+        buildTime && (
+          <LegoSetInfoBlock title="Build time">{buildTime}</LegoSetInfoBlock>
+        )
+      }
+      <a
+        href={`https://www.lego.com/nl-be/service/building-instructions/${setNumber}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LegoSetInfoBlock title="">Instructions</LegoSetInfoBlock>
+      </a>
     </div>
   </section>
 </article>
