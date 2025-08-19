@@ -35,7 +35,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "file-type": "^21.0.0",
     "globals": "^15.15.0",
-    "husky": "^8.0.3",
+    "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "node-fetch": "^3.3.2",
     "prettier": "^3.5.3",
