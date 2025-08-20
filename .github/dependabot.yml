@@ -8,6 +8,11 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      dev-deps:
+        dependency-type: "development"
+      prod-deps:
+        dependency-type: "production"
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
     # Workflow files stored in the default location of `.github/workflows`
@@ -15,3 +20,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      actions-deps:
+        patterns:
+          - "*"
