@@ -11,9 +11,7 @@ type Props = {
 const { collection, title, sets, showVariant } = Astro.props;
 ---
 
-<aside
-  class="bg-yellow-400 bg-opacity-30 dark:bg-slate-400 dark:bg-opacity-20 p-4"
->
+<aside class="bg-yellow-400/30 dark:bg-slate-400/20 p-4">
   <div class="flex flex-col gap-2 md:gap-4 mx-auto max-w-screen-md">
     <h3 class="text-lg text-sky-700 dark:text-sky-300">{title}</h3>
     <section class="overflow-x-scroll mx-[-1rem] md:mx-0">

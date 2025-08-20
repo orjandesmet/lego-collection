@@ -7,7 +7,6 @@ import LegoSetDetail from '@components/LegoSetDetail.astro';
 import LegoSetRecirculation from '@components/LegoSetRecirculation.astro';
 import { legoSetUtil } from '@utils/setUtil';
 import LegoBody from '@layouts/LegoBody.astro';
-import '@astrojs/tailwind/base.css';
 
 export async function getStaticPaths() {
   const legoSets = await getCollection('minifigs');
