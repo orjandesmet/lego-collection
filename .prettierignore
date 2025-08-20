@@ -19,7 +19,7 @@ pnpm-debug.log*
 .env.production
 
 # lock files
-pnpm-lock.json
+pnpm-lock.yaml
 
 # macOS-specific files
 .DS_Store
