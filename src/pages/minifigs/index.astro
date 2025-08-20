@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoSetListItem from '@components/LegoSetListItem.astro';
 import LegoBody from '@layouts/LegoBody.astro';
-import '@astrojs/tailwind/base.css';
 
 const allLegominifigs = await getCollection('minifigs');
 const allThemes = await getCollection('themes');

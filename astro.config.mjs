@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 
 import robots from 'astro-robots';
 
 import netlify from '@astrojs/netlify';
+
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +12,6 @@ export default defineConfig({
 
   // Needed for robotsTxt
   integrations: [
-    tailwind(),
     robots({
       sitemap: false,
       policy: [
@@ -23,6 +23,11 @@ export default defineConfig({
       ],
     }),
   ],
+
   output: 'static',
   adapter: netlify(),
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
