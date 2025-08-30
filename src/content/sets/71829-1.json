@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71829-1",
+  "name": "Lloyd's Green Forest Dragon",
+  "img": "./img/71829-1.png",
+  "year": 2025,
+  "themeId": "435",
+  "themes": ["435"],
+  "parts": 128,
+  "wishlist": false
+}
