@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71360-1",
+  "name": "Adventures with Mario Starter Course",
+  "img": "./img/71360-1.jpg",
+  "year": 2020,
+  "themeId": "690",
+  "themes": ["690"],
+  "parts": 231,
+  "wishlist": false
+}
