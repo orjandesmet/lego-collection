@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "10283-1",
+  "name": "NASA Space Shuttle Discovery",
+  "img": "./img/10283-1.jpg",
+  "year": 2021,
+  "themeId": "721",
+  "themes": ["721"],
+  "parts": 2355,
+  "wishlist": true
+}
