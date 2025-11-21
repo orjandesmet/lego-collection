@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "42163-1",
+  "name": "Heavy-Duty Bulldozer",
+  "img": "./img/42163-1.png",
+  "year": 2024,
+  "themeId": "1",
+  "themes": ["1"],
+  "parts": 195,
+  "wishlist": false
+}
