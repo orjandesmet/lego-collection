@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "42179-1",
+  "name": "Planet Earth and Moon in Orbit",
+  "img": "./img/42179-1.png",
+  "year": 2024,
+  "themeId": "1",
+  "themes": ["1"],
+  "parts": 526,
+  "wishlist": true
+}
