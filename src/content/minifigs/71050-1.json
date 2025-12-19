@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71050-1",
+  "name": "Miles Morales / Spider-Man",
+  "img": "./img/71050-1.jpg",
+  "year": 2025,
+  "themeId": "784",
+  "themes": ["535", "784"],
+  "parts": 7,
+  "wishlist": false
+}
