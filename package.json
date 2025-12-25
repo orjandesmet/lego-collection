@@ -19,12 +19,12 @@
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/netlify": "^6.6.3",
-    "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.16.3",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.6",
     "astro-robots": "^2.3.1",
     "astro-robots-txt": "^1.0.0",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@actions/core": "^1.11.1",
