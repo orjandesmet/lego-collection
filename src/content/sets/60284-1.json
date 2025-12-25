@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "60284-1",
+  "name": "Roadwork Truck",
+  "img": "./img/60284-1.jpg",
+  "year": 2021,
+  "themeId": "56",
+  "themes": ["52", "56"],
+  "parts": 58,
+  "wishlist": false
+}
