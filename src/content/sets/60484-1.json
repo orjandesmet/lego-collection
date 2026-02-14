@@ -1,0 +1,12 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "60484-1",
+  "name": "Rides – Gaming Race Car",
+  "img": "./img/60484-1.png",
+  "year": 2026,
+  "themeId": "52",
+  "themes": ["52"],
+  "parts": 64,
+  "wishlist": false
+}
