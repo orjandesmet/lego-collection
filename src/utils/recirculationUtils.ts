@@ -9,7 +9,7 @@ function scoreThemes(baseSet: LegoSet, themeIds: string[]) {
     .reduce((total, current) => total + Math.pow(2, -current), 0);
 }
 
-export const legoSetUtil = {
+export const recirculationUtils = {
   populateOtherSets: (
     baseSet: LegoSet,
     array: LegoSet[],
