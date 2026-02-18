@@ -1,4 +1,5 @@
 ---
+import { setUtils } from '@utils/setUtils';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import LegoSetImage from './LegoSetImage.astro';
 
@@ -12,10 +13,8 @@ type Props = {
 const themes = await getCollection('themes');
 
 const { collection, legoSetData, setId, showVariant } = Astro.props;
-const [setNumber, variant] = legoSetData.setNumber.split('-');
-const taxonomy = legoSetData.themes
-  .map((t) => themes.find((theme) => theme.id === t.id)?.data?.name)
-  .join(' - ');
+const { setNumber, variant } = setUtils.getSetNumberAndVariant(legoSetData);
+const taxonomy = setUtils.getTaxonomy(themes)(legoSetData);
 const isWishlist = legoSetData.wishlist ?? false;
 ---
 

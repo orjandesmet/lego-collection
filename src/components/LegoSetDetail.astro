@@ -1,8 +1,9 @@
 ---
+import { setUtils } from '@utils/setUtils';
 import { type CollectionEntry, getCollection } from 'astro:content';
-import LegoSetInfoBlock from './LegoSetInfoBlock.astro';
 import LegoSetHeader from './LegoSetHeader.astro';
 import LegoSetImage from './LegoSetImage.astro';
+import LegoSetInfoBlock from './LegoSetInfoBlock.astro';
 
 type Props = {
   collection: 'sets' | 'minifigs';
@@ -10,26 +11,13 @@ type Props = {
 };
 const { collection, legoSetData } = Astro.props;
 
-function stringifyBuildTime(
-  totalTimeSpent: Props['legoSetData']['totalTimeSpent']
-): string {
-  if (!totalTimeSpent) {
-    return '';
-  }
-  let buildTime = `${totalTimeSpent.minutes}m`;
-  if (totalTimeSpent.hours) {
-    buildTime = `${totalTimeSpent.hours}h ${buildTime}`;
-  }
-  return buildTime;
-}
 const themes = await getCollection('themes');
 
-const buildTime = stringifyBuildTime(legoSetData.totalTimeSpent);
-const [setNumber, variant] = legoSetData.setNumber.split('-');
-const taxonomy = legoSetData.themes
-  .map((theme) => themes.find((t) => t.id === theme.id)?.data.name)
-  .join(' - ');
+const buildTime = setUtils.stringifyBuildTime(legoSetData);
+const { setNumber, variant } = setUtils.getSetNumberAndVariant(legoSetData);
+const taxonomy = setUtils.getTaxonomy(themes)(legoSetData);
 const isWishlist = legoSetData.wishlist ?? false;
+const isPromotionalSet = setUtils.isPromotionalSet(legoSetData);
 const showVariant = collection === 'minifigs';
 ---
 
@@ -61,21 +49,28 @@ const showVariant = collection === 'minifigs';
           </LegoSetInfoBlock>
         )
       }
-      <a
-        href={`https://www.lego.com/nl-be/service/building-instructions/${setNumber}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <LegoSetInfoBlock icon="book-open" title=""
-          >Instructions <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="inline-block"
-            viewBox="0 0 24 24"
-            height="1rem"
-            width="1rem"><use href="/external.svg#external"></use></svg
-          ></LegoSetInfoBlock
-        >
-      </a>
+      {
+        !isPromotionalSet && (
+          <a
+            href={`https://www.lego.com/nl-be/service/building-instructions/${setNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LegoSetInfoBlock icon="book-open" title="">
+              Instructions{' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="inline-block"
+                viewBox="0 0 24 24"
+                height="1rem"
+                width="1rem"
+              >
+                <use href="/external.svg#external" />
+              </svg>
+            </LegoSetInfoBlock>
+          </a>
+        )
+      }
     </div>
   </section>
 </article>

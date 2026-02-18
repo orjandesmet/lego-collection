@@ -1,5 +1,5 @@
-import { z, defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { defineCollection, reference, z } from 'astro:content';
 
 const legoThemes = defineCollection({
   loader: glob({ pattern: '**/[^_]*.json', base: './src/content/themes' }),

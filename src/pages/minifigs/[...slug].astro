@@ -2,11 +2,11 @@
 import type { InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 
-import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoSetDetail from '@components/LegoSetDetail.astro';
 import LegoSetRecirculation from '@components/LegoSetRecirculation.astro';
-import { legoSetUtil } from '@utils/setUtil';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoBody from '@layouts/LegoBody.astro';
+import { recirculationUtils } from '@utils/recirculationUtils';
 
 export async function getStaticPaths() {
   const legoSets = await getCollection('minifigs');
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     params: { slug: entry.id },
     props: {
       legoSet: entry,
-      moreSets: legoSetUtil.populateOtherSets(entry, arr, 12),
+      moreSets: recirculationUtils.populateOtherSets(entry, arr, 12),
     },
   }));
 }
