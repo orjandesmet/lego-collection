@@ -1,11 +1,11 @@
-import { writeFileSync, readFileSync, existsSync } from 'fs';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import fetch, { Headers } from 'node-fetch';
 import { setOutput } from '@actions/core';
-import './update-themes.js';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
+import fetch, { Headers } from 'node-fetch';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 import { downloadImage } from './internal/dowloadImage.js';
 import { isMinifig } from './internal/isMinifig.js';
+import './update-themes.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -22,6 +22,8 @@ fetchFromRebrickable(process.argv[2], process.argv[3]);
 async function fetchFromRebrickable(setNumber, isWishlist) {
   const set = await getLegoSet(setNumber);
   set.wishlist = isWishlist === 'true';
+  // store only the date portion (YYYY-MM-DD) instead of full ISO timestamp
+  set.dateAdded = new Date().toISOString().split('T')[0];
   writeFileSync(
     resolve(
       __dirname,

@@ -33,14 +33,14 @@ const showVariant = collection === 'minifigs';
     <div class="w-fit mx-auto flex items-end gap-8">
       <LegoSetInfoBlock
         icon="pound"
-        title={collection === 'sets' ? 'Set' : 'minifig N°'}
+        title={collection === 'sets' ? 'Set N°' : 'Minifig N°'}
         >{showVariant ? `${setNumber}-${variant}` : setNumber}</LegoSetInfoBlock
       >
       <LegoSetInfoBlock icon="brick" title="Pieces"
         >{legoSetData.parts}</LegoSetInfoBlock
       >
-      <LegoSetInfoBlock icon="calendar" title="Year"
-        >{legoSetData.year}</LegoSetInfoBlock
+      <LegoSetInfoBlock icon="calendar" title="Added to collection"
+        >{legoSetData.dateAdded}</LegoSetInfoBlock
       >
       {
         buildTime && (
@@ -56,7 +56,7 @@ const showVariant = collection === 'minifigs';
             target="_blank"
             rel="noopener noreferrer"
           >
-            <LegoSetInfoBlock icon="book-open" title="">
+            <LegoSetInfoBlock icon="book-open" title="Open on LEGO.com">
               Instructions{' '}
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71000-2",
+  "name": "Cyclops",
+  "img": "./img/71000-2.jpg",
+  "year": 2013,
+  "themeId": "544",
+  "themes": ["535", "544"],
+  "parts": 6,
+  "dateAdded": "2024-02-04",
+  "wishlist": false
+}

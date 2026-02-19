@@ -1,0 +1,13 @@
+{
+  "$schema": "../../",
+  "source": "rebrickable",
+  "setNumber": "71005-14",
+  "name": "Scratchy",
+  "img": "./img/71005-14.jpg",
+  "year": 2014,
+  "themeId": "550",
+  "themes": ["535", "550"],
+  "parts": 6,
+  "dateAdded": "2024-02-04",
+  "wishlist": false
+}

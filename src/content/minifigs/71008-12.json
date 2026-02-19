@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71008-12",
+  "name": "Samurai",
+  "img": "./img/71008-12.jpg",
+  "year": 2015,
+  "themeId": "551",
+  "themes": ["535", "551"],
+  "parts": 7,
+  "dateAdded": "2024-02-04",
+  "wishlist": false
+}
