@@ -8,5 +8,12 @@
   "themeId": "764",
   "themes": ["764"],
   "parts": 2500,
-  "wishlist": false
+  "wishlist": false,
+  "dateStarted": "2024-09-05",
+  "dateFinished": "2024-09-18",
+  "totalTimeSpent": {
+    "hours": 3,
+    "minutes": 50,
+    "seconds": 49
+  }
 }
