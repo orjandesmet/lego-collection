@@ -11,6 +11,12 @@ const { pageTitle, showBreadcrumb } = Astro.props;
   {
     showBreadcrumb && (
       <h1 class="max-w-screen-xl mx-auto px-2 md:px-4 py-4 text-xl font-bold text-sky-700 dark:text-sky-300">
+        <a
+          href="/"
+          class="self-center border-t-4 border-l-4 border-solid border-sky-700 hover:border-sky-500 dark:boder-sky-300 h-4 w-4 -rotate-45"
+        >
+          &nbsp;
+        </a>{' '}
         {pageTitle}
       </h1>
     )
