@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoSetListItem from '@components/LegoSetListItem.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoBody from '@layouts/LegoBody.astro';
+import { getCollection } from 'astro:content';
 
 const allLegoSets = await getCollection('sets');
 const pageTitle = 'Lego sets';
@@ -42,7 +42,9 @@ const ownedSets = allLegoSets.filter(({ data: { wishlist } }) => !wishlist);
     >
       {
         ownedSets
-          .sort((setA, setB) => setB.data.year - setA.data.year)
+          .sort((setA, setB) =>
+            setB.data.dateAdded.localeCompare(setA.data.dateAdded)
+          )
           .map((set) => (
             <li>
               <LegoSetListItem

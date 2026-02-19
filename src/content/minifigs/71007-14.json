@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71007-14",
+  "name": "Piggy Guy",
+  "img": "./img/71007-14.jpg",
+  "year": 2014,
+  "themeId": "548",
+  "themes": ["535", "548"],
+  "parts": 6,
+  "dateAdded": "2024-02-04",
+  "wishlist": false
+}

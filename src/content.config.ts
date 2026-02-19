@@ -24,6 +24,7 @@ const legoSets = defineCollection({
       themes: z.array(reference('themes')),
       parts: z.number(),
       wishlist: z.boolean(),
+      dateAdded: z.string(),
       dateStarted: z.string().optional(),
       dateFinished: z.string().optional(),
       totalTimeSpent: z
