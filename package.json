@@ -29,8 +29,8 @@
   "devDependencies": {
     "@actions/core": "^3.0.0",
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.55.0",
-    "eslint": "^10.0.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "eslint": "^10.0.1",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "file-type": "^21.3.0",
@@ -40,7 +40,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.55.0"
+    "typescript-eslint": "^8.56.0"
   },
   "lint-staged": {
     "*.{css,html,json,cjs,mjs,js,ts,astro,yaml,md}": "prettier --write",
