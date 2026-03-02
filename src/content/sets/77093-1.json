@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "77093-1",
+  "name": "Ocarina of Time – The Final Battle",
+  "img": "./img/77093-1.jpg",
+  "year": 2026,
+  "themeId": "764",
+  "themes": ["764"],
+  "parts": 1003,
+  "wishlist": false,
+  "dateAdded": "2026-03-02"
+}
