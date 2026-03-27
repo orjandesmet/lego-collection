@@ -9,7 +9,6 @@ const pageTitle = 'Lego sets';
 const wishlistSets = allLegoSets.filter(({ data: { wishlist } }) => !!wishlist);
 const ownedSets = allLegoSets.filter(({ data: { wishlist } }) => !wishlist);
 const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
-const totalParts = ownedSets.reduce((sum, set) => sum + set.data.parts, 0);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -62,9 +61,7 @@ const totalParts = ownedSets.reduce((sum, set) => sum + set.data.parts, 0);
             <p
               class="rounded-xl border border-lime-200 bg-lime-100/70 px-3 py-2 text-sm text-lime-950 dark:border-lime-300/45 dark:bg-lime-900/35 dark:text-lime-100"
             >
-              <strong>{uniqueThemes.size}</strong> themes • {
-                totalParts.toLocaleString('nl-BE')
-              } parts
+              <strong>{uniqueThemes.size}</strong> themes
             </p>
           </div>
         </header>
