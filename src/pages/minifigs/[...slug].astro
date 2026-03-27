@@ -25,7 +25,7 @@ const { legoSet, moreSets } = Astro.props;
 const pageTitle = legoSet.data.name;
 ---
 
-<BaseLayout pageTitle={pageTitle} withTailwind>
+<BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
     <main class="detail-shell relative isolate overflow-hidden">
       <div

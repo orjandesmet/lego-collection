@@ -16,7 +16,7 @@ const ownedMinifigs = allLegominifigs.filter(({ data }) => !data.wishlist);
 const wishlistMinifigs = allLegominifigs.filter(({ data }) => data.wishlist);
 ---
 
-<BaseLayout pageTitle={pageTitle} withTailwind>
+<BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
     <main class="collection-shell relative isolate overflow-hidden">
       <div

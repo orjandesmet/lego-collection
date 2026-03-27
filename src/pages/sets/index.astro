@@ -12,7 +12,7 @@ const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
 const totalParts = ownedSets.reduce((sum, set) => sum + set.data.parts, 0);
 ---
 
-<BaseLayout pageTitle={pageTitle} withTailwind>
+<BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
     <main class="collection-shell relative isolate overflow-hidden">
       <div
