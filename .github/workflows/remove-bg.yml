@@ -1,0 +1,32 @@
+---
+name: Remove White Background
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_file:
+        description: 'Input file path (including file extension)'
+        required: true
+      output_file:
+        description: 'Output file path (including file extension)'
+        required: true
+
+jobs:
+  remove-bg:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install rembg
+      run: pip install rembg
+
+    - name: Remove white background
+      run: rembg -i ${{ github.event.inputs.input_file }} ${{ github.event.inputs.output_file }}
+---
