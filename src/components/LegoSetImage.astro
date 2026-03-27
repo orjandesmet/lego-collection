@@ -10,7 +10,7 @@ type Props = {
 const { img, alt, small } = Astro.props;
 const classNames = ['p-2', 'mx-auto'];
 if (small) {
-  classNames.push('h-24', 'sm:h-32', 'w-auto', 'max-w-full');
+  classNames.push('h-auto', 'w-auto', 'max-h-24', 'sm:max-h-32', 'max-w-full');
 } else {
   classNames.push(
     'w-full',
