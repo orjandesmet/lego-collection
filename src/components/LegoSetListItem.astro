@@ -18,21 +18,23 @@ const taxonomy = setUtils.getTaxonomy(themes)(legoSetData);
 const isWishlist = legoSetData.wishlist ?? false;
 const cardAccentClass =
   collection === 'sets'
-    ? 'hover:border-cyan-300 hover:shadow-cyan-900/10'
-    : 'hover:border-fuchsia-300 hover:shadow-fuchsia-900/10';
+    ? 'hover:border-cyan-300 hover:shadow-cyan-900/10 dark:hover:border-cyan-300/70 dark:hover:shadow-cyan-950/30'
+    : 'hover:border-fuchsia-300 hover:shadow-fuchsia-900/10 dark:hover:border-fuchsia-300/70 dark:hover:shadow-fuchsia-950/30';
 const titleAccentClass =
   collection === 'sets'
-    ? 'group-hover:text-cyan-700'
-    : 'group-hover:text-fuchsia-700';
+    ? 'group-hover:text-cyan-700 dark:group-hover:text-cyan-300'
+    : 'group-hover:text-fuchsia-700 dark:group-hover:text-fuchsia-300';
 const taxonomyAccentClass =
-  collection === 'sets' ? 'text-amber-700/90' : 'text-lime-700/90';
+  collection === 'sets'
+    ? 'text-amber-700/90 dark:text-amber-200'
+    : 'text-lime-700/90 dark:text-lime-200';
 ---
 
 <a class="group" href=`/${collection}/${setId}`>
   <article
     data-collection={collection}
     class:list={[
-      'relative flex flex-row gap-3 overflow-hidden rounded-2xl border border-slate-900/10 bg-white/85 p-3 shadow-sm shadow-slate-900/10 transition duration-200 hover:-translate-y-1 hover:shadow-lg',
+      'relative flex flex-row gap-3 overflow-hidden rounded-2xl border border-slate-900/10 bg-white/85 p-3 shadow-sm shadow-slate-900/10 transition duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60 dark:shadow-slate-950/30',
       cardAccentClass,
     ]}
   >
@@ -55,14 +57,14 @@ const taxonomyAccentClass =
         }
         <h4
           class:list={[
-            'text-sm font-semibold text-slate-900 underline-offset-2 transition group-hover:underline sm:text-base',
+            'text-sm font-semibold text-slate-900 underline-offset-2 transition group-hover:underline sm:text-base dark:text-slate-100',
             titleAccentClass,
           ]}
         >
           {legoSetData.name}
         </h4>
       </div>
-      <p class="text-xs text-slate-500 sm:text-sm">
+      <p class="text-xs text-slate-500 sm:text-sm dark:text-slate-300">
         <span class="text-gray-300 after:content-['_']">#</span>{
           showVariant ? `${setNumber} variant ${variant}` : setNumber
         }

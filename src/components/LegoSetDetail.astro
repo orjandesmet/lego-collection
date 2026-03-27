@@ -21,15 +21,17 @@ const isPromotionalSet = setUtils.isPromotionalSet(legoSetData);
 const showVariant = collection === 'minifigs';
 const detailAccentClass =
   collection === 'sets'
-    ? 'border-amber-200/80 shadow-amber-900/10'
-    : 'border-fuchsia-200/80 shadow-fuchsia-900/10';
+    ? 'border-amber-200/80 shadow-amber-900/10 dark:border-amber-300/35 dark:shadow-amber-950/20'
+    : 'border-fuchsia-200/80 shadow-fuchsia-900/10 dark:border-fuchsia-300/35 dark:shadow-fuchsia-950/20';
 const imageAccentClass =
-  collection === 'sets' ? 'ring-1 ring-cyan-200/70' : 'ring-1 ring-lime-200/80';
+  collection === 'sets'
+    ? 'ring-1 ring-cyan-200/70 dark:ring-cyan-300/35'
+    : 'ring-1 ring-lime-200/80 dark:ring-lime-300/35';
 ---
 
 <article
   class:list={[
-    'detail-card rounded-3xl border bg-white/75 p-3 shadow-lg backdrop-blur-sm md:p-5',
+    'detail-card rounded-3xl border bg-white/75 p-3 shadow-lg backdrop-blur-sm dark:bg-slate-900/60 dark:shadow-slate-950/35 md:p-5',
     detailAccentClass,
   ]}
 >
@@ -41,7 +43,7 @@ const imageAccentClass =
   />
   <div
     class:list={[
-      'mt-4 rounded-2xl bg-white/90 p-3 shadow-sm shadow-slate-900/10 md:p-5',
+      'mt-4 rounded-2xl bg-white/90 p-3 shadow-sm shadow-slate-900/10 dark:bg-slate-800/80 dark:shadow-slate-950/35 md:p-5',
       imageAccentClass,
     ]}
   >

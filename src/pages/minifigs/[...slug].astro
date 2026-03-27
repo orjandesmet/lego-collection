@@ -76,10 +76,91 @@ const pageTitle = legoSet.data.name;
     font-family: 'Chivo', 'Avenir Next', 'Trebuchet MS', sans-serif;
   }
 
+  :global(.dark) .detail-shell {
+    background:
+      radial-gradient(
+        circle at 14% 16%,
+        rgba(217, 70, 239, 0.14),
+        transparent 36%
+      ),
+      radial-gradient(
+        circle at 82% 24%,
+        rgba(163, 230, 53, 0.14),
+        transparent 38%
+      ),
+      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .detail-shell {
+      background:
+        radial-gradient(
+          circle at 14% 16%,
+          rgba(217, 70, 239, 0.14),
+          transparent 36%
+        ),
+        radial-gradient(
+          circle at 82% 24%,
+          rgba(163, 230, 53, 0.14),
+          transparent 38%
+        ),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+  }
+
   .detail-shell h1,
   .detail-shell h2,
   .detail-shell h3 {
     font-family: 'Sora', 'Franklin Gothic Medium', 'Trebuchet MS', sans-serif;
     letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 48rem) {
+    .detail-shell {
+      background:
+        radial-gradient(
+          circle at 18% 10%,
+          rgba(217, 70, 239, 0.2),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 78% 14%,
+          rgba(163, 230, 53, 0.2),
+          transparent 36%
+        ),
+        linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    }
+
+    :global(.dark) .detail-shell {
+      background:
+        radial-gradient(
+          circle at 18% 10%,
+          rgba(217, 70, 239, 0.16),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 78% 14%,
+          rgba(163, 230, 53, 0.16),
+          transparent 34%
+        ),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .detail-shell {
+        background:
+          radial-gradient(
+            circle at 18% 10%,
+            rgba(217, 70, 239, 0.16),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 78% 14%,
+            rgba(163, 230, 53, 0.16),
+            transparent 34%
+          ),
+          linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      }
+    }
   }
 </style>

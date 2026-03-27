@@ -11,15 +11,17 @@ type Props = {
 const { collection, title, sets, showVariant } = Astro.props;
 const containerAccentClass =
   collection === 'sets'
-    ? 'border-cyan-200/80 shadow-cyan-900/10'
-    : 'border-lime-200/80 shadow-lime-900/10';
+    ? 'border-cyan-200/80 shadow-cyan-900/10 dark:border-cyan-300/35 dark:shadow-cyan-950/20'
+    : 'border-lime-200/80 shadow-lime-900/10 dark:border-lime-300/35 dark:shadow-lime-950/20';
 const titleAccentClass =
-  collection === 'sets' ? 'text-cyan-900' : 'text-lime-900';
+  collection === 'sets'
+    ? 'text-cyan-900 dark:text-cyan-200'
+    : 'text-lime-900 dark:text-lime-200';
 ---
 
 <aside
   class:list={[
-    'rounded-3xl border bg-white/70 p-4 shadow-md backdrop-blur-sm md:p-6',
+    'rounded-3xl border bg-white/70 p-4 shadow-md backdrop-blur-sm dark:bg-slate-900/60 dark:shadow-slate-950/35 md:p-6',
     containerAccentClass,
   ]}
 >

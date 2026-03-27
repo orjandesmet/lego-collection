@@ -53,31 +53,31 @@ const recentlyAddedSets = ownedSets
         class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-8 pt-12 md:px-8 md:pt-20"
       >
         <header
-          class="animate-rise rounded-3xl border border-slate-900/10 bg-white/75 p-6 shadow-lg shadow-slate-900/10 backdrop-blur-sm md:p-10"
+          class="animate-rise rounded-3xl border border-slate-900/10 bg-white/75 p-6 shadow-lg shadow-slate-900/10 backdrop-blur-sm dark:border-slate-200/10 dark:bg-slate-900/60 dark:shadow-slate-950/40 md:p-10"
         >
           <p
-            class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500"
+            class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-300"
           >
             Personal LEGO archive
           </p>
           <h1
-            class="mt-4 text-4xl font-bold leading-tight text-slate-900 md:text-6xl"
+            class="mt-4 text-4xl font-bold leading-tight text-slate-900 dark:text-slate-100 md:text-6xl"
           >
             Bricks. Loads of Them.
           </h1>
-          <p class="mt-4 max-w-3xl text-lg text-slate-700">
+          <p class="mt-4 max-w-3xl text-lg text-slate-700 dark:text-slate-200">
             Browse my growing collection or see what's on my wishlist.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a
               href="/sets"
-              class="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-700"
+              class="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:bg-sky-300 dark:text-slate-950 dark:hover:bg-sky-200 dark:focus-visible:outline-sky-300"
             >
               Explore sets
             </a>
             <a
               href="/minifigs"
-              class="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-500"
+              class="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 dark:border-slate-500 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:border-slate-300 dark:focus-visible:outline-slate-300"
             >
               Explore minifigs
             </a>
@@ -86,42 +86,54 @@ const recentlyAddedSets = ownedSets
 
         <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <article
-            class="animate-rise rounded-2xl border border-amber-200 bg-amber-100/70 p-5 shadow-sm shadow-amber-900/10 [animation-delay:80ms]"
+            class="animate-rise rounded-2xl border border-amber-200 bg-amber-100/70 p-5 shadow-sm shadow-amber-900/10 dark:border-amber-300/55 dark:bg-amber-950/45 dark:shadow-amber-950/40 [animation-delay:80ms]"
           >
-            <p class="text-xs uppercase tracking-[0.16em] text-amber-800">
+            <p
+              class="text-xs uppercase tracking-[0.16em] text-amber-800 dark:text-amber-200"
+            >
               Owned sets
             </p>
-            <p class="mt-3 text-4xl font-bold text-amber-950">
+            <p
+              class="mt-3 text-4xl font-bold text-amber-950 dark:text-amber-100"
+            >
               {ownedSets.length}
             </p>
           </article>
           <article
-            class="animate-rise rounded-2xl border border-cyan-200 bg-cyan-100/70 p-5 shadow-sm shadow-cyan-900/10 [animation-delay:140ms]"
+            class="animate-rise rounded-2xl border border-cyan-200 bg-cyan-100/70 p-5 shadow-sm shadow-cyan-900/10 dark:border-cyan-300/55 dark:bg-cyan-950/45 dark:shadow-cyan-950/40 [animation-delay:140ms]"
           >
-            <p class="text-xs uppercase tracking-[0.16em] text-cyan-800">
+            <p
+              class="text-xs uppercase tracking-[0.16em] text-cyan-800 dark:text-cyan-200"
+            >
               Set wishlist
             </p>
-            <p class="mt-3 text-4xl font-bold text-cyan-950">
+            <p class="mt-3 text-4xl font-bold text-cyan-950 dark:text-cyan-100">
               {wishlistSets.length}
             </p>
           </article>
           <article
-            class="animate-rise rounded-2xl border border-lime-200 bg-lime-100/70 p-5 shadow-sm shadow-lime-900/10 [animation-delay:200ms]"
+            class="animate-rise rounded-2xl border border-lime-200 bg-lime-100/70 p-5 shadow-sm shadow-lime-900/10 dark:border-lime-300/55 dark:bg-lime-950/45 dark:shadow-lime-950/40 [animation-delay:200ms]"
           >
-            <p class="text-xs uppercase tracking-[0.16em] text-lime-800">
+            <p
+              class="text-xs uppercase tracking-[0.16em] text-lime-800 dark:text-lime-200"
+            >
               Owned minifigs
             </p>
-            <p class="mt-3 text-4xl font-bold text-lime-950">
+            <p class="mt-3 text-4xl font-bold text-lime-950 dark:text-lime-100">
               {ownedMinifigs.length}
             </p>
           </article>
           <article
-            class="animate-rise rounded-2xl border border-fuchsia-200 bg-fuchsia-100/70 p-5 shadow-sm shadow-fuchsia-900/10 [animation-delay:260ms]"
+            class="animate-rise rounded-2xl border border-fuchsia-200 bg-fuchsia-100/70 p-5 shadow-sm shadow-fuchsia-900/10 dark:border-fuchsia-300/55 dark:bg-fuchsia-950/45 dark:shadow-fuchsia-950/40 [animation-delay:260ms]"
           >
-            <p class="text-xs uppercase tracking-[0.16em] text-fuchsia-800">
+            <p
+              class="text-xs uppercase tracking-[0.16em] text-fuchsia-800 dark:text-fuchsia-200"
+            >
               Total bricks
             </p>
-            <p class="mt-3 text-4xl font-bold text-fuchsia-950">
+            <p
+              class="mt-3 text-4xl font-bold text-fuchsia-950 dark:text-fuchsia-100"
+            >
               {totalBricks.toLocaleString('nl-BE')}
             </p>
           </article>
@@ -129,23 +141,25 @@ const recentlyAddedSets = ownedSets
 
         <section class="grid gap-4 lg:grid-cols-3">
           <article
-            class="animate-rise rounded-2xl border border-slate-900/10 bg-white/80 p-6 shadow-md shadow-slate-900/10 backdrop-blur-sm [animation-delay:320ms] lg:col-span-2"
+            class="animate-rise rounded-2xl border border-slate-900/10 bg-white/80 p-6 shadow-md shadow-slate-900/10 backdrop-blur-sm dark:border-slate-200/10 dark:bg-slate-900/60 dark:shadow-slate-950/40 [animation-delay:320ms] lg:col-span-2"
           >
-            <h2 class="text-2xl font-semibold text-slate-900">
+            <h2
+              class="text-2xl font-semibold text-slate-900 dark:text-slate-100"
+            >
               Recently added sets
             </h2>
             <ul class="mt-4 space-y-3">
               {
                 recentlyAddedSets.map((set) => (
-                  <li class="rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <li class="rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-800/80">
                     <a
                       href={`/sets/${set.id}`}
-                      class="group flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between"
+                      class="group flex flex-col gap-1 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 sm:flex-row sm:items-center sm:justify-between dark:focus-visible:outline-sky-300"
                     >
-                      <span class="font-medium text-slate-900 group-hover:text-sky-700">
+                      <span class="font-medium text-slate-900 group-hover:text-sky-700 dark:text-slate-100 dark:group-hover:text-sky-300">
                         {set.data.name}
                       </span>
-                      <span class="text-sm text-slate-500">
+                      <span class="text-sm text-slate-500 dark:text-slate-300">
                         {set.data.dateAdded}
                       </span>
                     </a>
@@ -157,17 +171,17 @@ const recentlyAddedSets = ownedSets
 
           <aside
             data-daily-pick-card
-            class="animate-rise rounded-2xl border border-slate-900/10 bg-linear-to-br from-slate-900 to-slate-700 p-6 text-white shadow-md shadow-slate-900/25 [animation-delay:380ms]"
+            class="animate-rise rounded-2xl border border-slate-900/10 bg-linear-to-br from-slate-900 to-slate-700 p-6 text-white shadow-md shadow-slate-900/25 dark:border-slate-100/10 dark:from-slate-950 dark:to-slate-800 [animation-delay:380ms]"
           >
             <h2 class="text-2xl font-semibold">Set of the day</h2>
             <p class="mt-3 text-slate-200" data-daily-pick-copy>
               Picking today's set...
             </p>
-            <p class="mt-2 text-sm text-slate-300" data-daily-pick-meta></p>
+            <p class="mt-2 text-sm text-slate-200" data-daily-pick-meta></p>
             <a
               href="/sets"
               data-daily-pick-link
-              class="mt-6 inline-block rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-amber-100"
+              class="mt-6 inline-block rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200"
             >
               View sets
             </a>
@@ -245,6 +259,48 @@ const recentlyAddedSets = ownedSets
     font-family: 'Chivo', 'Avenir Next', 'Trebuchet MS', sans-serif;
   }
 
+  :global(.dark) .landing-shell {
+    background:
+      radial-gradient(
+        circle at 14% 16%,
+        rgba(251, 191, 36, 0.16),
+        transparent 36%
+      ),
+      radial-gradient(
+        circle at 82% 22%,
+        rgba(34, 211, 238, 0.14),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 62% 84%,
+        rgba(163, 230, 53, 0.12),
+        transparent 44%
+      ),
+      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .landing-shell {
+      background:
+        radial-gradient(
+          circle at 14% 16%,
+          rgba(251, 191, 36, 0.16),
+          transparent 36%
+        ),
+        radial-gradient(
+          circle at 82% 22%,
+          rgba(34, 211, 238, 0.14),
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 62% 84%,
+          rgba(163, 230, 53, 0.12),
+          transparent 44%
+        ),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+  }
+
   .landing-shell h1,
   .landing-shell h2 {
     font-family: 'Sora', 'Franklin Gothic Medium', 'Trebuchet MS', sans-serif;
@@ -281,6 +337,38 @@ const recentlyAddedSets = ownedSets
           transparent 38%
         ),
         linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+    }
+
+    :global(.dark) .landing-shell {
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(251, 191, 36, 0.18),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 78% 14%,
+          rgba(34, 211, 238, 0.16),
+          transparent 36%
+        ),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .landing-shell {
+        background:
+          radial-gradient(
+            circle at 20% 10%,
+            rgba(251, 191, 36, 0.18),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 78% 14%,
+            rgba(34, 211, 238, 0.16),
+            transparent 36%
+          ),
+          linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      }
     }
   }
 </style>
