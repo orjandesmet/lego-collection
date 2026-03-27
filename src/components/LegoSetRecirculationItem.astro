@@ -20,20 +20,22 @@ const titleAccentClass =
     : 'group-hover:text-fuchsia-700 dark:group-hover:text-fuchsia-300';
 ---
 
-<a class="group" href=`/${collection}/${setId}`>
+<a class="group flex h-full" href=`/${collection}/${setId}`>
   <article
     data-collection={collection}
     data-wishlist={isWishlist}
     class:list={[
-      'relative flex w-48 flex-col gap-2 overflow-hidden rounded-2xl border border-slate-900/10 bg-white/85 pb-3 shadow-sm shadow-slate-900/10 transition duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60 dark:shadow-slate-950/30',
+      'relative flex h-full w-48 flex-col overflow-hidden rounded-2xl border border-slate-900/10 bg-white/85 pb-3 shadow-sm shadow-slate-900/10 transition duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60 dark:shadow-slate-950/30',
       cardAccentClass,
     ]}
   >
-    <LegoSetImage img={legoSetData.img} alt={legoSetData.name} small />
-    <header class="mx-2">
+    <div class="flex flex-1 items-center justify-center">
+      <LegoSetImage img={legoSetData.img} alt={legoSetData.name} small />
+    </div>
+    <header class="mx-2 mt-2">
       <h4
         class:list={[
-          'text-sm font-semibold text-slate-900 underline-offset-2 transition group-hover:underline dark:text-slate-100',
+          'card-title text-sm leading-5 font-semibold text-slate-900 underline-offset-2 transition group-hover:underline dark:text-slate-100',
           titleAccentClass,
         ]}
       >
@@ -59,5 +61,13 @@ const titleAccentClass =
 
   [data-collection='minifigs'][data-wishlist='true']::before {
     color: rgb(217, 70, 239);
+  }
+
+  .card-title {
+    height: 2.5rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 </style>
