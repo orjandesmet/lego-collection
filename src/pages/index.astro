@@ -14,7 +14,20 @@ const wishlistSets = allSets.filter(({ data }) => data.wishlist);
 const ownedMinifigs = allMinifigs.filter(({ data }) => !data.wishlist);
 const wishlistMinifigs = allMinifigs.filter(({ data }) => data.wishlist);
 
-const uniqueSetThemes = new Set(allSets.map((set) => set.data.themeId.id));
+const totalBricks = [...ownedSets, ...ownedMinifigs].reduce(
+  (sum, item) => sum + item.data.parts,
+  0
+);
+
+const ownedSetsForDailyPick = ownedSets.toSorted((a, b) =>
+  a.id.localeCompare(b.id)
+);
+const dailyPickCandidates = ownedSetsForDailyPick.map((set) => ({
+  id: set.id,
+  name: set.data.name,
+  setNumber: set.data.setNumber,
+  parts: set.data.parts,
+}));
 const recentlyAddedSets = ownedSets
   .toSorted((a, b) => b.data.dateAdded.localeCompare(a.data.dateAdded))
   .slice(0, 3);
@@ -106,10 +119,10 @@ const recentlyAddedSets = ownedSets
             class="animate-rise rounded-2xl border border-fuchsia-200 bg-fuchsia-100/70 p-5 shadow-sm shadow-fuchsia-900/10 [animation-delay:260ms]"
           >
             <p class="text-xs uppercase tracking-[0.16em] text-fuchsia-800">
-              Set themes
+              Total bricks
             </p>
             <p class="mt-3 text-4xl font-bold text-fuchsia-950">
-              {uniqueSetThemes.size}
+              {totalBricks.toLocaleString('nl-BE')}
             </p>
           </article>
         </section>
@@ -143,22 +156,66 @@ const recentlyAddedSets = ownedSets
           </article>
 
           <aside
+            data-daily-pick-card
             class="animate-rise rounded-2xl border border-slate-900/10 bg-linear-to-br from-slate-900 to-slate-700 p-6 text-white shadow-md shadow-slate-900/25 [animation-delay:380ms]"
           >
-            <h2 class="text-2xl font-semibold">Collection pulse</h2>
-            <p class="mt-3 text-slate-200">
-              You currently track {allSets.length + allMinifigs.length} items in total,
-              including {wishlistMinifigs.length} minifigs still on your wishlist.
+            <h2 class="text-2xl font-semibold">Set of the day</h2>
+            <p class="mt-3 text-slate-200" data-daily-pick-copy>
+              Picking today's set...
             </p>
+            <p class="mt-2 text-sm text-slate-300" data-daily-pick-meta></p>
             <a
               href="/sets"
+              data-daily-pick-link
               class="mt-6 inline-block rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-amber-100"
             >
-              Continue building
+              View sets
             </a>
           </aside>
         </section>
       </section>
+
+      <script is:inline define:vars={{ dailyPickCandidates }}>
+        (() => {
+          const card = document.querySelector('[data-daily-pick-card]');
+          if (!card) return;
+
+          const copyEl = card.querySelector('[data-daily-pick-copy]');
+          const metaEl = card.querySelector('[data-daily-pick-meta]');
+          const linkEl = card.querySelector('[data-daily-pick-link]');
+          if (!copyEl || !metaEl || !linkEl) return;
+
+          if (
+            !Array.isArray(dailyPickCandidates) ||
+            dailyPickCandidates.length === 0
+          ) {
+            copyEl.textContent = 'Add an owned set to unlock daily picks.';
+            metaEl.textContent = '';
+            linkEl.textContent = 'View sets';
+            linkEl.setAttribute('href', '/sets');
+            return;
+          }
+
+          const now = new Date();
+          const dayKey = [
+            now.getFullYear(),
+            String(now.getMonth() + 1).padStart(2, '0'),
+            String(now.getDate()).padStart(2, '0'),
+          ].join('-');
+
+          const dayHash = Array.from(dayKey).reduce(
+            (hash, char) => hash + char.charCodeAt(0),
+            0
+          );
+
+          const pick =
+            dailyPickCandidates[dayHash % dailyPickCandidates.length];
+          copyEl.textContent = `Today's build is ${pick.name}.`;
+          metaEl.textContent = `#${pick.setNumber} • ${new Intl.NumberFormat('nl-BE').format(pick.parts)} pieces`;
+          linkEl.textContent = 'Open set of the day';
+          linkEl.setAttribute('href', `/sets/${pick.id}`);
+        })();
+      </script>
     </main>
   </LegoBody>
 </BaseLayout>
