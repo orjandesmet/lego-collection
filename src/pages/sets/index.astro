@@ -8,53 +8,148 @@ const allLegoSets = await getCollection('sets');
 const pageTitle = 'Lego sets';
 const wishlistSets = allLegoSets.filter(({ data: { wishlist } }) => !!wishlist);
 const ownedSets = allLegoSets.filter(({ data: { wishlist } }) => !wishlist);
+const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
+const totalParts = ownedSets.reduce((sum, set) => sum + set.data.parts, 0);
 ---
 
 <BaseLayout pageTitle={pageTitle} withTailwind>
-  <LegoBody pageTitle={pageTitle} showBreadcrumb>
-    <h2
-      class="max-w-screen-xl mx-auto px-2 md:px-4 text-xl text-gray-500 datk:text-slate-400"
-    >
-      Wishlist
-    </h2>
-    <ul
-      class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4"
-    >
-      {
-        wishlistSets.map((set) => (
-          <li>
-            <LegoSetListItem
-              collection="sets"
-              legoSetData={set.data}
-              setId={set.id}
-            />
-          </li>
-        ))
-      }
-    </ul>
-    <h2
-      class="max-w-screen-xl mx-auto px-2 md:px-4 text-xl text-gray-500 datk:text-slate-400"
-    >
-      Owned
-    </h2>
-    <ul
-      class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4"
-    >
-      {
-        ownedSets
-          .sort((setA, setB) =>
-            setB.data.dateAdded.localeCompare(setA.data.dateAdded)
-          )
-          .map((set) => (
-            <li>
-              <LegoSetListItem
-                collection="sets"
-                legoSetData={set.data}
-                setId={set.id}
-              />
-            </li>
-          ))
-      }
-    </ul>
+  <LegoBody pageTitle={pageTitle}>
+    <main class="collection-shell relative isolate overflow-hidden">
+      <div
+        class="pointer-events-none absolute -left-16 top-16 h-52 w-52 rounded-full bg-amber-300/50 blur-3xl"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute right-0 top-24 h-60 w-60 rounded-full bg-cyan-300/45 blur-3xl"
+      >
+      </div>
+
+      <section
+        class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pb-10 pt-10 md:px-8 md:pt-14"
+      >
+        <header
+          class="animate-rise rounded-3xl border border-slate-900/10 bg-white/75 p-6 shadow-lg shadow-slate-900/10 backdrop-blur-sm md:p-8"
+        >
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500"
+          >
+            Set overview
+          </p>
+          <h1 class="mt-3 text-4xl font-bold text-slate-900 md:text-5xl">
+            My LEGO sets
+          </h1>
+          <div class="mt-5 grid gap-3 sm:grid-cols-3">
+            <p
+              class="rounded-xl border border-amber-200 bg-amber-100/70 px-3 py-2 text-sm text-amber-950"
+            >
+              <strong>{ownedSets.length}</strong> owned
+            </p>
+            <p
+              class="rounded-xl border border-cyan-200 bg-cyan-100/70 px-3 py-2 text-sm text-cyan-950"
+            >
+              <strong>{wishlistSets.length}</strong> wishlist
+            </p>
+            <p
+              class="rounded-xl border border-amber-200 bg-amber-100/70 px-3 py-2 text-sm text-amber-950"
+            >
+              <strong>{uniqueThemes.size}</strong> themes • {
+                totalParts.toLocaleString('nl-BE')
+              } parts
+            </p>
+          </div>
+        </header>
+
+        <section
+          class="animate-rise rounded-2xl border border-slate-900/10 bg-white/75 p-4 shadow-md shadow-slate-900/10 backdrop-blur-sm [animation-delay:100ms] md:p-6"
+        >
+          <div class="mb-4 flex items-center justify-between gap-2">
+            <h2 class="text-2xl font-semibold text-slate-900">Wishlist</h2>
+            <p class="text-sm text-slate-500">{wishlistSets.length} sets</p>
+          </div>
+          <ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {
+              wishlistSets.map((set) => (
+                <li>
+                  <LegoSetListItem
+                    collection="sets"
+                    legoSetData={set.data}
+                    setId={set.id}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section
+          class="animate-rise rounded-2xl border border-slate-900/10 bg-white/75 p-4 shadow-md shadow-slate-900/10 backdrop-blur-sm [animation-delay:180ms] md:p-6"
+        >
+          <div class="mb-4 flex items-center justify-between gap-2">
+            <h2 class="text-2xl font-semibold text-slate-900">Owned</h2>
+            <p class="text-sm text-slate-500">Newest first</p>
+          </div>
+          <ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {
+              ownedSets
+                .sort((setA, setB) =>
+                  setB.data.dateAdded.localeCompare(setA.data.dateAdded)
+                )
+                .map((set) => (
+                  <li>
+                    <LegoSetListItem
+                      collection="sets"
+                      legoSetData={set.data}
+                      setId={set.id}
+                    />
+                  </li>
+                ))
+            }
+          </ul>
+        </section>
+      </section>
+    </main>
   </LegoBody>
 </BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=Sora:wght@500;700;800&display=swap');
+
+  .collection-shell {
+    min-height: 100dvh;
+    background:
+      radial-gradient(
+        circle at 12% 14%,
+        rgba(251, 191, 36, 0.2),
+        transparent 38%
+      ),
+      radial-gradient(
+        circle at 82% 24%,
+        rgba(34, 211, 238, 0.18),
+        transparent 42%
+      ),
+      linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    font-family: 'Chivo', 'Avenir Next', 'Trebuchet MS', sans-serif;
+  }
+
+  .collection-shell h1,
+  .collection-shell h2 {
+    font-family: 'Sora', 'Franklin Gothic Medium', 'Trebuchet MS', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .animate-rise {
+    animation: rise 620ms ease-out both;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

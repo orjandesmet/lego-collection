@@ -6,12 +6,14 @@ type Props = {
 const { icon, title } = Astro.props;
 ---
 
-<div class="flex flex-col justify-center items-center">
+<div
+  class="flex min-w-28 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white/85 px-3 py-3 shadow-sm shadow-slate-900/5"
+>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="text-gray-500 dark:text-slate-400"
-    width="48px"
-    height="48px"
+    class="text-slate-500"
+    width="36px"
+    height="36px"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -19,6 +21,6 @@ const { icon, title } = Astro.props;
   >
     <use href={`/${icon}.svg#${icon}`}></use>
   </svg>
-  <p class="text-sm font-bold text-sky-700 dark:text-sky-300"><slot /></p>
-  {title && <p class="text-xs text-gray-500 dark:text-slate-400">{title}</p>}
+  <p class="mt-1 text-sm font-bold text-slate-900"><slot /></p>
+  {title && <p class="text-center text-xs text-slate-500">{title}</p>}
 </div>

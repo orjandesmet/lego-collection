@@ -27,15 +27,58 @@ const pageTitle = legoSet.data.name;
 
 <BaseLayout pageTitle={pageTitle} withTailwind>
   <LegoBody pageTitle={pageTitle}>
-    <LegoSetDetail collection="sets" legoSetData={legoSet.data} />
-    {
-      moreSets && (
-        <LegoSetRecirculation
-          collection="sets"
-          title="Related sets"
-          sets={moreSets}
-        />
-      )
-    }
+    <main class="detail-shell relative isolate overflow-hidden">
+      <div
+        class="pointer-events-none absolute -left-16 top-14 h-52 w-52 rounded-full bg-amber-300/50 blur-3xl"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute right-0 top-24 h-60 w-60 rounded-full bg-cyan-300/40 blur-3xl"
+      >
+      </div>
+
+      <section
+        class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-10 pt-10 md:px-8 md:pt-14"
+      >
+        <LegoSetDetail collection="sets" legoSetData={legoSet.data} />
+        {
+          moreSets && (
+            <LegoSetRecirculation
+              collection="sets"
+              title="Related sets"
+              sets={moreSets}
+            />
+          )
+        }
+      </section>
+    </main>
   </LegoBody>
 </BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=Sora:wght@500;700;800&display=swap');
+
+  .detail-shell {
+    min-height: 100dvh;
+    background:
+      radial-gradient(
+        circle at 12% 14%,
+        rgba(251, 191, 36, 0.2),
+        transparent 38%
+      ),
+      radial-gradient(
+        circle at 82% 24%,
+        rgba(34, 211, 238, 0.18),
+        transparent 42%
+      ),
+      linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    font-family: 'Chivo', 'Avenir Next', 'Trebuchet MS', sans-serif;
+  }
+
+  .detail-shell h1,
+  .detail-shell h2,
+  .detail-shell h3 {
+    font-family: 'Sora', 'Franklin Gothic Medium', 'Trebuchet MS', sans-serif;
+    letter-spacing: -0.02em;
+  }
+</style>

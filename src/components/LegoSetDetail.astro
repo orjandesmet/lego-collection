@@ -19,18 +19,38 @@ const taxonomy = setUtils.getTaxonomy(themes)(legoSetData);
 const isWishlist = legoSetData.wishlist ?? false;
 const isPromotionalSet = setUtils.isPromotionalSet(legoSetData);
 const showVariant = collection === 'minifigs';
+const detailAccentClass =
+  collection === 'sets'
+    ? 'border-amber-200/80 shadow-amber-900/10'
+    : 'border-fuchsia-200/80 shadow-fuchsia-900/10';
+const imageAccentClass =
+  collection === 'sets' ? 'ring-1 ring-cyan-200/70' : 'ring-1 ring-lime-200/80';
 ---
 
-<article class="bg-white dark:bg-transparent">
+<article
+  class:list={[
+    'detail-card rounded-3xl border bg-white/75 p-3 shadow-lg backdrop-blur-sm md:p-5',
+    detailAccentClass,
+  ]}
+>
   <LegoSetHeader
     title={legoSetData.name}
     taxonomy={taxonomy}
     wishlist={isWishlist}
     backButton=`/${collection}`
   />
-  <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
-  <section class="py-4">
-    <div class="w-fit mx-auto flex items-end gap-8">
+  <div
+    class:list={[
+      'mt-4 rounded-2xl bg-white/90 p-3 shadow-sm shadow-slate-900/10 md:p-5',
+      imageAccentClass,
+    ]}
+  >
+    <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
+  </div>
+  <section class="py-5">
+    <div
+      class="mx-auto flex w-fit flex-wrap items-stretch justify-center gap-3 md:gap-4"
+    >
       <LegoSetInfoBlock
         icon="pound"
         title={collection === 'sets' ? 'Set N°' : 'Minifig N°'}

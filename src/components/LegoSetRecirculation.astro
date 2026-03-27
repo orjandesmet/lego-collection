@@ -9,13 +9,26 @@ type Props = {
 };
 
 const { collection, title, sets, showVariant } = Astro.props;
+const containerAccentClass =
+  collection === 'sets'
+    ? 'border-cyan-200/80 shadow-cyan-900/10'
+    : 'border-lime-200/80 shadow-lime-900/10';
+const titleAccentClass =
+  collection === 'sets' ? 'text-cyan-900' : 'text-lime-900';
 ---
 
-<aside class="bg-yellow-400/30 dark:bg-slate-400/20 p-4">
-  <div class="flex flex-col gap-2 md:gap-4 mx-auto max-w-screen-md">
-    <h3 class="text-lg text-sky-700 dark:text-sky-300">{title}</h3>
-    <section class="overflow-x-scroll mx-[-1rem] md:mx-0">
-      <ul class="flex w-max gap-2 md:gap-4 px-4 md:px-0">
+<aside
+  class:list={[
+    'rounded-3xl border bg-white/70 p-4 shadow-md backdrop-blur-sm md:p-6',
+    containerAccentClass,
+  ]}
+>
+  <div class="mx-auto flex max-w-6xl flex-col gap-3 md:gap-4">
+    <h3 class:list={['text-lg font-semibold md:text-xl', titleAccentClass]}>
+      {title}
+    </h3>
+    <section class="-mx-4 overflow-x-auto md:mx-0">
+      <ul class="flex w-max gap-3 px-4 md:gap-4 md:px-0">
         {
           sets.map((set) => (
             <li>
