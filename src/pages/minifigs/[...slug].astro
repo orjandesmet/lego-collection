@@ -2,9 +2,9 @@
 import type { InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 
-import BackgroundBlobs from '@components/BackgroundBlobs.astro';
 import LegoSetDetail from '@components/LegoSetDetail.astro';
 import LegoSetRecirculation from '@components/LegoSetRecirculation.astro';
+import ThemedPageShell from '@components/ThemedPageShell.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoBody from '@layouts/LegoBody.astro';
 import { recirculationUtils } from '@utils/recirculationUtils';
@@ -28,11 +28,7 @@ const pageTitle = legoSet.data.name;
 
 <BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
-    <main
-      class="theme-shell theme-shell--detail theme-shell--minifigs relative isolate overflow-hidden"
-    >
-      <BackgroundBlobs collection="minifigs" variant="detail" />
-
+    <ThemedPageShell collection="minifigs" variant="detail">
       <section
         class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-10 pt-10 md:px-8 md:pt-14"
       >
@@ -48,6 +44,6 @@ const pageTitle = legoSet.data.name;
           )
         }
       </section>
-    </main>
+    </ThemedPageShell>
   </LegoBody>
 </BaseLayout>

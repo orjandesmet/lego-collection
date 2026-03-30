@@ -1,8 +1,8 @@
 ---
-import BackgroundBlobs from '@components/BackgroundBlobs.astro';
 import CollectionHeader from '@components/CollectionHeader.astro';
 import CollectionSection from '@components/CollectionSection.astro';
 import CollectionSetGrid from '@components/CollectionSetGrid.astro';
+import ThemedPageShell from '@components/ThemedPageShell.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoBody from '@layouts/LegoBody.astro';
 import { getCollection } from 'astro:content';
@@ -16,11 +16,7 @@ const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
 
 <BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
-    <main
-      class="theme-shell theme-shell--collection theme-shell--sets relative isolate overflow-hidden"
-    >
-      <BackgroundBlobs collection="sets" variant="collection" />
-
+    <ThemedPageShell collection="sets" variant="collection">
       <section
         class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pb-10 pt-10 md:px-8 md:pt-14"
       >
@@ -59,6 +55,6 @@ const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
           />
         </CollectionSection>
       </section>
-    </main>
+    </ThemedPageShell>
   </LegoBody>
 </BaseLayout>
