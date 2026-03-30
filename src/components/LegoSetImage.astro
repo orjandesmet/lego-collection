@@ -8,7 +8,7 @@ type Props = {
   small?: boolean;
 };
 const { img, alt, small } = Astro.props;
-const classNames = ['p-2', 'mx-auto', 'relative', 'z-10', 'transition'];
+const classNames = ['md:p-2', 'mx-auto', 'relative', 'z-10', 'transition'];
 if (small) {
   classNames.push(
     'h-auto',
@@ -21,6 +21,7 @@ if (small) {
   );
 } else {
   classNames.push(
+    'py-2',
     'w-full',
     'max-w-screen-md',
     'max-h-[70vh]',
@@ -34,6 +35,7 @@ if (small) {
 }
 
 const figureClass = [
+  'flex-grow-1',
   'relative overflow-hidden rounded-xl border border-slate-200/80',
   'bg-white shadow-sm shadow-slate-900/8',
   'dark:border-slate-600/80 dark:shadow-slate-950/35',
