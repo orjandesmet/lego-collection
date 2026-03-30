@@ -30,6 +30,16 @@ const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
           ]}
         />
 
+        <div class="animate-rise" style="animation-delay:50ms">
+          <label for="set-search" class="sr-only">Search sets</label>
+          <input
+            id="set-search"
+            type="search"
+            placeholder="Search by name, number or theme…"
+            class="w-full rounded-xl border border-slate-900/10 bg-white/75 px-4 py-2.5 text-sm text-slate-900 shadow-sm backdrop-blur-sm placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-cyan-500 dark:focus:ring-cyan-500/20"
+          />
+        </div>
+
         <CollectionSection
           accent="cyan"
           className="scroll-mt-28"
@@ -58,3 +68,8 @@ const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
     </ThemedPageShell>
   </LegoBody>
 </BaseLayout>
+
+<script>
+  import { initCollectionSearch } from '@scripts/collection-search';
+  initCollectionSearch('#set-search');
+</script>

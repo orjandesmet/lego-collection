@@ -53,26 +53,43 @@ const minifigsByTheme = Array.from(themesInminifigs)
           ]}
         />
 
+        <div class="animate-rise" style="animation-delay:50ms">
+          <label for="minifig-search" class="sr-only">Search minifigs</label>
+          <input
+            id="minifig-search"
+            type="search"
+            placeholder="Search by name, number or theme..."
+            class="w-full rounded-xl border border-slate-900/10 bg-white/75 px-4 py-2.5 text-sm text-slate-900 shadow-sm backdrop-blur-sm placeholder:text-slate-400 focus:border-fuchsia-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/30 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-fuchsia-500 dark:focus:ring-fuchsia-500/20"
+          />
+        </div>
+
         {
           minifigsByTheme.map(({ themeId, items }, index) => (
-            <CollectionSection
-              accent="lime"
-              title={
-                allThemes.find((theme) => theme.id === themeId)?.data?.name ??
-                themeId
-              }
-              meta={`${items.length} items`}
-              animationDelayMs={80 + index * 40}
-            >
-              <CollectionSetGrid
-                collection="minifigs"
-                items={items}
-                showVariant
-              />
-            </CollectionSection>
+            <div data-search-section>
+              <CollectionSection
+                accent="lime"
+                title={
+                  allThemes.find((theme) => theme.id === themeId)?.data?.name ??
+                  themeId
+                }
+                meta={`${items.length} items`}
+                animationDelayMs={80 + index * 40}
+              >
+                <CollectionSetGrid
+                  collection="minifigs"
+                  items={items}
+                  showVariant
+                />
+              </CollectionSection>
+            </div>
           ))
         }
       </section>
     </ThemedPageShell>
   </LegoBody>
 </BaseLayout>
+
+<script>
+  import { initCollectionSearch } from '@scripts/collection-search';
+  initCollectionSearch('#minifig-search');
+</script>

@@ -11,6 +11,7 @@ function getSetNumberAndVariant(legoSetData: LegoSetData) {
 function getTaxonomy(themes: LegoTheme[]) {
   return function (legoSetData: LegoSetData) {
     return legoSetData.themes
+      .filter((theme) => theme.id !== '535') // Exclude 'Collectible Minifigures' theme
       .map((theme) => themes.find((t) => t.id === theme.id)?.data.name)
       .join(' - ');
   };

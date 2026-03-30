@@ -12,7 +12,7 @@ type Props = {
 const { collection, items, showVariant } = Astro.props as Props;
 ---
 
-<ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+<ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3" data-search-grid>
   {
     items.map((item) => (
       <li>
@@ -25,4 +25,11 @@ const { collection, items, showVariant } = Astro.props as Props;
       </li>
     ))
   }
+  <li
+    data-search-empty
+    hidden
+    class="col-span-full py-4 text-center text-sm text-slate-500 dark:text-slate-400"
+  >
+    No results found.
+  </li>
 </ul>
