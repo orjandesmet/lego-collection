@@ -4,14 +4,60 @@ type Props = {
   title: string;
 };
 const { icon, title } = Astro.props;
+
+const cardToneClasses = {
+  pound:
+    'border-amber-200 bg-amber-100/75 shadow-amber-900/10 dark:border-amber-300/55 dark:bg-amber-950/45 dark:shadow-amber-950/35',
+  brick:
+    'border-cyan-200 bg-cyan-100/75 shadow-cyan-900/10 dark:border-cyan-300/55 dark:bg-cyan-950/45 dark:shadow-cyan-950/35',
+  calendar:
+    'border-lime-200 bg-lime-100/75 shadow-lime-900/10 dark:border-lime-300/55 dark:bg-lime-950/45 dark:shadow-lime-950/35',
+  stopwatch:
+    'border-fuchsia-200 bg-fuchsia-100/75 shadow-fuchsia-900/10 dark:border-fuchsia-300/55 dark:bg-fuchsia-950/45 dark:shadow-fuchsia-950/35',
+  'book-open':
+    'border-slate-300 bg-slate-100/90 shadow-slate-900/10 dark:border-slate-500/70 dark:bg-slate-800/80 dark:shadow-slate-950/35',
+} as const;
+
+const textToneClasses = {
+  pound: {
+    icon: 'text-amber-700 dark:text-amber-200',
+    value: 'text-amber-950 dark:text-amber-100',
+    label: 'text-amber-800 dark:text-amber-200',
+  },
+  brick: {
+    icon: 'text-cyan-700 dark:text-cyan-200',
+    value: 'text-cyan-950 dark:text-cyan-100',
+    label: 'text-cyan-800 dark:text-cyan-200',
+  },
+  calendar: {
+    icon: 'text-lime-700 dark:text-lime-200',
+    value: 'text-lime-950 dark:text-lime-100',
+    label: 'text-lime-800 dark:text-lime-200',
+  },
+  stopwatch: {
+    icon: 'text-fuchsia-700 dark:text-fuchsia-200',
+    value: 'text-fuchsia-950 dark:text-fuchsia-100',
+    label: 'text-fuchsia-800 dark:text-fuchsia-200',
+  },
+  'book-open': {
+    icon: 'text-slate-700 dark:text-slate-200',
+    value: 'text-slate-900 dark:text-slate-100',
+    label: 'text-slate-600 dark:text-slate-300',
+  },
+} as const;
+
+const tone = textToneClasses[icon];
 ---
 
 <div
-  class="flex min-w-28 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white/85 px-3 py-3 shadow-sm shadow-slate-900/5 dark:border-slate-700 dark:bg-slate-900/70 dark:shadow-slate-950/30"
+  class:list={[
+    'flex min-h-36 min-w-36 flex-col items-center justify-center rounded-2xl border px-4 py-4 text-center shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md md:min-w-40',
+    cardToneClasses[icon],
+  ]}
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="text-slate-500 dark:text-slate-300"
+    class:list={['transition-colors', tone.icon]}
     width="36px"
     height="36px"
     fill="none"
@@ -21,12 +67,12 @@ const { icon, title } = Astro.props;
   >
     <use href={`/${icon}.svg#${icon}`}></use>
   </svg>
-  <p class="mt-1 text-sm font-bold text-slate-900 dark:text-slate-100">
+  <p class:list={['mt-2 text-sm font-bold leading-tight', tone.value]}>
     <slot />
   </p>
   {
     title && (
-      <p class="text-center text-xs text-slate-500 dark:text-slate-300">
+      <p class:list={['mt-1 text-xs uppercase tracking-[0.08em]', tone.label]}>
         {title}
       </p>
     )
