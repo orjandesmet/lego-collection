@@ -50,7 +50,7 @@ const imageAccentClass =
   </div>
   <section class="py-5">
     <div
-      class="mx-auto flex w-fit flex-wrap items-stretch justify-center gap-3 md:gap-4"
+      class="mx-auto grid w-full max-w-4xl grid-cols-2 items-stretch gap-3 md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4"
     >
       <LegoSetInfoBlock
         icon="pound"
@@ -76,7 +76,7 @@ const imageAccentClass =
             href={`https://www.lego.com/nl-be/service/building-instructions/${setNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="group rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 dark:focus-visible:outline-slate-300"
+            class="group block h-full w-full rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 md:w-auto dark:focus-visible:outline-slate-300"
           >
             <LegoSetInfoBlock icon="book-open" title="Open on LEGO.com">
               Instructions{' '}

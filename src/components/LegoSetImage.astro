@@ -6,8 +6,9 @@ type Props = {
   img: CollectionEntry<'sets' | 'minifigs'>['data']['img'];
   alt: string;
   small?: boolean;
+  vertical?: boolean;
 };
-const { img, alt, small } = Astro.props;
+const { img, alt, small, vertical } = Astro.props;
 const classNames = ['md:p-2', 'mx-auto', 'relative', 'z-10', 'transition'];
 if (small) {
   classNames.push(
@@ -35,11 +36,17 @@ if (small) {
 }
 
 const figureClass = [
-  'flex-grow-1',
-  'relative overflow-hidden rounded-xl border border-slate-200/80',
+  'flex-grow-1 flex items-center justify-center h-full',
+  'relative overflow-hidden rounded-xl border-slate-200/80',
   'bg-white shadow-sm shadow-slate-900/8',
   'dark:border-slate-600/80 dark:shadow-slate-950/35',
 ];
+
+if (vertical) {
+  figureClass.push('border-b');
+} else {
+  figureClass.push('border');
+}
 
 if (small) {
   figureClass.push('p-1');
