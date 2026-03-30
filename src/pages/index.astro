@@ -245,8 +245,6 @@ const recentlyAddedSets = ownedSets
 </BaseLayout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=Sora:wght@500;700;800&display=swap');
-
   .landing-shell {
     background:
       radial-gradient(
@@ -266,7 +264,7 @@ const recentlyAddedSets = ownedSets
       ),
       linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
     min-height: 100dvh;
-    font-family: 'Chivo', 'Avenir Next', 'Trebuchet MS', sans-serif;
+    font-family: var(--font-sans);
   }
 
   :global(.dark) .landing-shell {
@@ -313,7 +311,7 @@ const recentlyAddedSets = ownedSets
 
   .landing-shell h1,
   .landing-shell h2 {
-    font-family: 'Sora', 'Franklin Gothic Medium', 'Trebuchet MS', sans-serif;
+    font-family: var(--font-heading);
     letter-spacing: -0.02em;
   }
 
