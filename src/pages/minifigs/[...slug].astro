@@ -2,6 +2,7 @@
 import type { InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 
+import BackgroundBlobs from '@components/BackgroundBlobs.astro';
 import LegoSetDetail from '@components/LegoSetDetail.astro';
 import LegoSetRecirculation from '@components/LegoSetRecirculation.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -27,15 +28,10 @@ const pageTitle = legoSet.data.name;
 
 <BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
-    <main class="detail-shell relative isolate overflow-hidden">
-      <div
-        class="pointer-events-none absolute -left-14 top-14 h-52 w-52 rounded-full bg-fuchsia-300/45 blur-3xl"
-      >
-      </div>
-      <div
-        class="pointer-events-none absolute right-0 top-24 h-60 w-60 rounded-full bg-lime-300/40 blur-3xl"
-      >
-      </div>
+    <main
+      class="theme-shell theme-shell--detail theme-shell--minifigs relative isolate overflow-hidden"
+    >
+      <BackgroundBlobs collection="minifigs" variant="detail" />
 
       <section
         class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-10 pt-10 md:px-8 md:pt-14"
@@ -55,112 +51,3 @@ const pageTitle = legoSet.data.name;
     </main>
   </LegoBody>
 </BaseLayout>
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=Sora:wght@500;700;800&display=swap');
-
-  .detail-shell {
-    min-height: 100dvh;
-    background:
-      radial-gradient(
-        circle at 14% 16%,
-        rgba(217, 70, 239, 0.18),
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 82% 24%,
-        rgba(163, 230, 53, 0.18),
-        transparent 40%
-      ),
-      linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-    font-family: 'Chivo', 'Avenir Next', 'Trebuchet MS', sans-serif;
-  }
-
-  :global(.dark) .detail-shell {
-    background:
-      radial-gradient(
-        circle at 14% 16%,
-        rgba(217, 70, 239, 0.14),
-        transparent 36%
-      ),
-      radial-gradient(
-        circle at 82% 24%,
-        rgba(163, 230, 53, 0.14),
-        transparent 38%
-      ),
-      linear-gradient(180deg, #020617 0%, #0f172a 100%);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .detail-shell {
-      background:
-        radial-gradient(
-          circle at 14% 16%,
-          rgba(217, 70, 239, 0.14),
-          transparent 36%
-        ),
-        radial-gradient(
-          circle at 82% 24%,
-          rgba(163, 230, 53, 0.14),
-          transparent 38%
-        ),
-        linear-gradient(180deg, #020617 0%, #0f172a 100%);
-    }
-  }
-
-  .detail-shell h1,
-  .detail-shell h2,
-  .detail-shell h3 {
-    font-family: 'Sora', 'Franklin Gothic Medium', 'Trebuchet MS', sans-serif;
-    letter-spacing: -0.02em;
-  }
-
-  @media (max-width: 48rem) {
-    .detail-shell {
-      background:
-        radial-gradient(
-          circle at 18% 10%,
-          rgba(217, 70, 239, 0.2),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 78% 14%,
-          rgba(163, 230, 53, 0.2),
-          transparent 36%
-        ),
-        linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-    }
-
-    :global(.dark) .detail-shell {
-      background:
-        radial-gradient(
-          circle at 18% 10%,
-          rgba(217, 70, 239, 0.16),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 78% 14%,
-          rgba(163, 230, 53, 0.16),
-          transparent 34%
-        ),
-        linear-gradient(180deg, #020617 0%, #0f172a 100%);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .detail-shell {
-        background:
-          radial-gradient(
-            circle at 18% 10%,
-            rgba(217, 70, 239, 0.16),
-            transparent 32%
-          ),
-          radial-gradient(
-            circle at 78% 14%,
-            rgba(163, 230, 53, 0.16),
-            transparent 34%
-          ),
-          linear-gradient(180deg, #020617 0%, #0f172a 100%);
-      }
-    }
-  }
-</style>

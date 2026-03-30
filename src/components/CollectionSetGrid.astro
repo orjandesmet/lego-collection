@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import LegoSetListItem from './LegoSetListItem.astro';
+
+type Props = {
+  collection: 'sets' | 'minifigs';
+  items: CollectionEntry<'sets' | 'minifigs'>[];
+  showVariant?: boolean;
+};
+
+const { collection, items, showVariant } = Astro.props as Props;
+---
+
+<ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+  {
+    items.map((item) => (
+      <li>
+        <LegoSetListItem
+          collection={collection}
+          legoSetData={item.data}
+          setId={item.id}
+          showVariant={showVariant}
+        />
+      </li>
+    ))
+  }
+</ul>

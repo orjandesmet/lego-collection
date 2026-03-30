@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import robots from 'astro-robots';
 
@@ -26,6 +26,24 @@ export default defineConfig({
 
   output: 'static',
   adapter: netlify(),
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Chivo',
+      cssVariable: '--font-sans',
+      weights: [400, 500, 600, 700],
+      fallbacks: ['Avenir Next', 'Trebuchet MS', 'sans-serif'],
+      styles: ['normal'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'Sora',
+      cssVariable: '--font-heading',
+      weights: [400, 500, 600, 700],
+      fallbacks: ['Franklin Gothic Medium', 'Trebuchet MS', 'sans-serif'],
+      styles: ['normal'],
+    },
+  ],
 
   vite: {
     plugins: [tailwindcss()],

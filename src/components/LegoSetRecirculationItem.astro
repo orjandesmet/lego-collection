@@ -8,7 +8,7 @@ type Props = {
   setId: string;
   showVariant?: boolean;
 };
-const { collection, legoSetData, setId, showVariant } = Astro.props;
+const { collection, legoSetData, setId } = Astro.props;
 const isWishlist = legoSetData.wishlist ?? false;
 const cardAccentClass =
   collection === 'sets'

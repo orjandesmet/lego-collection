@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 
 // import Header from '../components/Header.astro';
 // import Footer from '../components/Footer.astro';
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 type Props = {
   pageTitle: string;
@@ -19,6 +20,8 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <ClientRouter />
+    <Font cssVariable="--font-sans" />
+    <Font cssVariable="--font-heading" />
   </head>
   <slot />
 </html>

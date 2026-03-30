@@ -17,10 +17,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/netlify": "^6.6.4",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/netlify": "^7.0.5",
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.18.0",
+    "astro": "^6.1.1",
     "astro-robots": "^2.3.1",
     "astro-robots-txt": "^1.0.0",
     "sharp": "^0.34.5",

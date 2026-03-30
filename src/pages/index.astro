@@ -12,7 +12,6 @@ const [allSets, allMinifigs] = await Promise.all([
 const ownedSets = allSets.filter(({ data }) => !data.wishlist);
 const wishlistSets = allSets.filter(({ data }) => data.wishlist);
 const ownedMinifigs = allMinifigs.filter(({ data }) => !data.wishlist);
-const wishlistMinifigs = allMinifigs.filter(({ data }) => data.wishlist);
 
 const totalBricks = [...ownedSets, ...ownedMinifigs].reduce(
   (sum, item) => sum + item.data.parts,

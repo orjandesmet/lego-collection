@@ -1,0 +1,42 @@
+---
+type Accent = 'cyan' | 'fuchsia' | 'lime';
+
+type Props = {
+  title: string;
+  meta: string;
+  accent: Accent;
+  id?: string;
+  animationDelayMs?: number;
+  className?: string;
+};
+
+const { title, meta, accent, id, animationDelayMs, className } =
+  Astro.props as Props;
+
+const accentClassMap: Record<Accent, string> = {
+  cyan: 'border-cyan-200/70 shadow-cyan-900/10 dark:border-cyan-300/40',
+  fuchsia:
+    'border-fuchsia-200/70 shadow-fuchsia-900/10 dark:border-fuchsia-300/40',
+  lime: 'border-lime-200/70 shadow-lime-900/10 dark:border-lime-300/40',
+};
+---
+
+<section
+  id={id}
+  class:list={[
+    'animate-rise rounded-2xl border bg-white/75 p-4 shadow-md backdrop-blur-sm dark:bg-slate-900/60 dark:shadow-slate-950/35 md:p-6',
+    accentClassMap[accent],
+    className,
+  ]}
+  style={animationDelayMs !== undefined
+    ? `animation-delay:${animationDelayMs}ms`
+    : undefined}
+>
+  <div class="mb-4 flex items-center justify-between gap-2">
+    <h2 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+      {title}
+    </h2>
+    <p class="text-sm text-slate-500 dark:text-slate-300">{meta}</p>
+  </div>
+  <slot />
+</section>

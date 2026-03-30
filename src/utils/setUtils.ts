@@ -32,9 +32,18 @@ function isPromotionalSet(legoSetData: LegoSetData) {
   return legoSetData.themes.some((theme) => theme.id === '598');
 }
 
+function sortByVariant<T extends { data: LegoSetData }>(items: T[]) {
+  return items.sort((a, b) => {
+    const variantA = Number(a.data.setNumber.split('-')[1] || '');
+    const variantB = Number(b.data.setNumber.split('-')[1] || '');
+    return variantA - variantB;
+  });
+}
+
 export const setUtils = {
   getSetNumberAndVariant,
   getTaxonomy,
   stringifyBuildTime,
   isPromotionalSet,
+  sortByVariant,
 };
