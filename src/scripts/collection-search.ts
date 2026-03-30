@@ -32,6 +32,9 @@ export function initCollectionSearch(inputSelector: string): void {
   const input = document.querySelector<HTMLInputElement>(inputSelector);
   if (!input) return;
 
+  // Initial filter to set the correct state on page load
+  filterItems(input.value);
+
   input.addEventListener('input', () => {
     filterItems(input.value);
   });
