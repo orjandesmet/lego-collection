@@ -6,23 +6,54 @@ type Props = {
   img: CollectionEntry<'sets' | 'minifigs'>['data']['img'];
   alt: string;
   small?: boolean;
+  vertical?: boolean;
 };
-const { img, alt, small } = Astro.props;
-const classNames = ['p-2', 'mx-auto'];
+const { img, alt, small, vertical } = Astro.props;
+const classNames = ['md:p-2', 'mx-auto', 'relative', 'z-10', 'transition'];
 if (small) {
-  classNames.push('h-24', 'sm:h-32', 'w-auto', 'max-w-full');
+  classNames.push(
+    'h-auto',
+    'w-auto',
+    'max-h-24',
+    'sm:max-h-32',
+    'max-w-full',
+    'dark:brightness-110',
+    'dark:contrast-110'
+  );
 } else {
   classNames.push(
+    'py-2',
     'w-full',
     'max-w-screen-md',
+    'max-h-[70vh]',
+    'object-contain',
     'px-20',
+    'rounded-xl',
     'bg-white',
-    'rounded-lg'
+    'dark:brightness-110',
+    'dark:contrast-110'
   );
+}
+
+const figureClass = [
+  'flex-grow-1 flex items-center justify-center h-full',
+  'relative overflow-hidden rounded-xl border-slate-200/80',
+  'bg-white shadow-sm shadow-slate-900/8',
+  'dark:border-slate-600/80 dark:shadow-slate-950/35',
+];
+
+if (vertical) {
+  figureClass.push('border-b');
+} else {
+  figureClass.push('border');
+}
+
+if (small) {
+  figureClass.push('p-1');
 }
 ---
 
-<figure class=`relative ${small ? 'bg-white rounded-lg overflow-hidden' : ''}`>
+<figure class={figureClass.join(' ')}>
   <Image
     src={img}
     alt={`Image for ${alt}`}
@@ -31,7 +62,7 @@ if (small) {
     decoding="async"
   />
   <div
-    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-gradient-to-b dark:bg-gradient-to-t opacity-10 pointer-events-none from-black to-white"
+    class="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0)_48%,rgba(226,232,240,0.18)_78%,rgba(203,213,225,0.34)_100%),linear-gradient(180deg,rgba(255,255,255,0)_42%,rgba(203,213,225,0.24)_100%)] opacity-70 dark:opacity-80"
   >
   </div>
 </figure>

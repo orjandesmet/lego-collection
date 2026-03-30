@@ -1,5 +1,8 @@
 ---
-import LegoSetListItem from '@components/LegoSetListItem.astro';
+import CollectionHeader from '@components/CollectionHeader.astro';
+import CollectionSection from '@components/CollectionSection.astro';
+import CollectionSetGrid from '@components/CollectionSetGrid.astro';
+import ThemedPageShell from '@components/ThemedPageShell.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoBody from '@layouts/LegoBody.astro';
 import { getCollection } from 'astro:content';
@@ -8,53 +11,65 @@ const allLegoSets = await getCollection('sets');
 const pageTitle = 'Lego sets';
 const wishlistSets = allLegoSets.filter(({ data: { wishlist } }) => !!wishlist);
 const ownedSets = allLegoSets.filter(({ data: { wishlist } }) => !wishlist);
+const uniqueThemes = new Set(allLegoSets.map((set) => set.data.themeId.id));
 ---
 
-<BaseLayout pageTitle={pageTitle} withTailwind>
-  <LegoBody pageTitle={pageTitle} showBreadcrumb>
-    <h2
-      class="max-w-screen-xl mx-auto px-2 md:px-4 text-xl text-gray-500 datk:text-slate-400"
-    >
-      Wishlist
-    </h2>
-    <ul
-      class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4"
-    >
-      {
-        wishlistSets.map((set) => (
-          <li>
-            <LegoSetListItem
-              collection="sets"
-              legoSetData={set.data}
-              setId={set.id}
-            />
-          </li>
-        ))
-      }
-    </ul>
-    <h2
-      class="max-w-screen-xl mx-auto px-2 md:px-4 text-xl text-gray-500 datk:text-slate-400"
-    >
-      Owned
-    </h2>
-    <ul
-      class="max-w-screen-xl mx-auto flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 p-2 md:p-4"
-    >
-      {
-        ownedSets
-          .sort((setA, setB) =>
-            setB.data.dateAdded.localeCompare(setA.data.dateAdded)
-          )
-          .map((set) => (
-            <li>
-              <LegoSetListItem
-                collection="sets"
-                legoSetData={set.data}
-                setId={set.id}
-              />
-            </li>
-          ))
-      }
-    </ul>
+<BaseLayout pageTitle={pageTitle}>
+  <LegoBody pageTitle={pageTitle}>
+    <ThemedPageShell collection="sets" variant="collection">
+      <section
+        class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pb-10 pt-10 md:px-8 md:pt-14"
+      >
+        <CollectionHeader
+          overviewLabel="Set overview"
+          title="My LEGO sets"
+          stats={[
+            { label: 'owned', value: ownedSets.length, accent: 'amber' },
+            { label: 'wishlist', value: wishlistSets.length, accent: 'cyan' },
+            { label: 'themes', value: uniqueThemes.size, accent: 'lime' },
+          ]}
+        />
+
+        <div class="animate-rise" style="animation-delay:50ms">
+          <label for="set-search" class="sr-only">Search sets</label>
+          <input
+            id="set-search"
+            type="search"
+            placeholder="Search by name, number or theme…"
+            class="w-full rounded-xl border border-slate-900/10 bg-white/75 px-4 py-2.5 text-sm text-slate-900 shadow-sm backdrop-blur-sm placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-cyan-500 dark:focus:ring-cyan-500/20"
+          />
+        </div>
+
+        <CollectionSection
+          accent="cyan"
+          className="scroll-mt-28"
+          id="wishlist"
+          title="Wishlist"
+          meta={`${wishlistSets.length} sets`}
+          animationDelayMs={100}
+        >
+          <CollectionSetGrid collection="sets" items={wishlistSets} />
+        </CollectionSection>
+
+        <CollectionSection
+          accent="fuchsia"
+          title="Owned"
+          meta="Newest first"
+          animationDelayMs={180}
+        >
+          <CollectionSetGrid
+            collection="sets"
+            items={ownedSets.sort((setA, setB) =>
+              setB.data.dateAdded.localeCompare(setA.data.dateAdded)
+            )}
+          />
+        </CollectionSection>
+      </section>
+    </ThemedPageShell>
   </LegoBody>
 </BaseLayout>
+
+<script>
+  import { initCollectionSearch } from '@scripts/collection-search';
+  initCollectionSearch('#set-search');
+</script>

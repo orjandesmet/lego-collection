@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 
 import LegoSetDetail from '@components/LegoSetDetail.astro';
 import LegoSetRecirculation from '@components/LegoSetRecirculation.astro';
+import ThemedPageShell from '@components/ThemedPageShell.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import LegoBody from '@layouts/LegoBody.astro';
 import { recirculationUtils } from '@utils/recirculationUtils';
@@ -25,18 +26,24 @@ const { legoSet, moreSets } = Astro.props;
 const pageTitle = legoSet.data.name;
 ---
 
-<BaseLayout pageTitle={pageTitle} withTailwind>
+<BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
-    <LegoSetDetail collection="minifigs" legoSetData={legoSet.data} />
-    {
-      moreSets && (
-        <LegoSetRecirculation
-          collection="minifigs"
-          title="Related minifigs"
-          sets={moreSets}
-          showVariant
-        />
-      )
-    }
+    <ThemedPageShell collection="minifigs" variant="detail">
+      <section
+        class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-10 pt-10 md:px-8 md:pt-14"
+      >
+        <LegoSetDetail collection="minifigs" legoSetData={legoSet.data} />
+        {
+          moreSets && (
+            <LegoSetRecirculation
+              collection="minifigs"
+              title="Related minifigs"
+              sets={moreSets}
+              showVariant
+            />
+          )
+        }
+      </section>
+    </ThemedPageShell>
   </LegoBody>
 </BaseLayout>

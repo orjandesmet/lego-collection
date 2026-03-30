@@ -1,0 +1,39 @@
+---
+type Props = {
+  collection: 'sets' | 'minifigs';
+  variant: 'collection' | 'detail';
+};
+
+const { collection, variant } = Astro.props;
+
+const classesByVariant = {
+  sets: {
+    collection: [
+      'pointer-events-none absolute -left-16 top-16 h-52 w-52 rounded-full bg-amber-300/50 blur-3xl',
+      'pointer-events-none absolute right-0 top-24 h-60 w-60 rounded-full bg-cyan-300/45 blur-3xl',
+      'pointer-events-none absolute bottom-8 left-1/3 h-56 w-56 rounded-full bg-lime-300/35 blur-3xl',
+      'pointer-events-none absolute top-1/2 right-1/4 h-44 w-44 rounded-full bg-fuchsia-300/25 blur-3xl',
+    ],
+    detail: [
+      'pointer-events-none absolute -left-16 top-14 h-52 w-52 rounded-full bg-amber-300/50 blur-3xl',
+      'pointer-events-none absolute right-0 top-24 h-60 w-60 rounded-full bg-cyan-300/40 blur-3xl',
+    ],
+  },
+  minifigs: {
+    collection: [
+      'pointer-events-none absolute -left-12 top-16 h-52 w-52 rounded-full bg-fuchsia-300/45 blur-3xl',
+      'pointer-events-none absolute right-0 top-24 h-64 w-64 rounded-full bg-lime-300/40 blur-3xl',
+      'pointer-events-none absolute bottom-10 left-1/3 h-52 w-52 rounded-full bg-cyan-300/30 blur-3xl',
+      'pointer-events-none absolute top-1/2 right-1/4 h-44 w-44 rounded-full bg-amber-300/22 blur-3xl',
+    ],
+    detail: [
+      'pointer-events-none absolute -left-14 top-14 h-52 w-52 rounded-full bg-fuchsia-300/45 blur-3xl',
+      'pointer-events-none absolute right-0 top-24 h-60 w-60 rounded-full bg-lime-300/40 blur-3xl',
+    ],
+  },
+} as const;
+
+const blobs = classesByVariant[collection][variant];
+---
+
+{blobs.map((blobClass) => <div class={blobClass} />)}

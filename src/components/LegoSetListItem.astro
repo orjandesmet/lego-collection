@@ -16,31 +16,59 @@ const { collection, legoSetData, setId, showVariant } = Astro.props;
 const { setNumber, variant } = setUtils.getSetNumberAndVariant(legoSetData);
 const taxonomy = setUtils.getTaxonomy(themes)(legoSetData);
 const isWishlist = legoSetData.wishlist ?? false;
+const cardAccentClass =
+  collection === 'sets'
+    ? 'hover:border-cyan-300 hover:shadow-cyan-900/10 dark:hover:border-cyan-300/70 dark:hover:shadow-cyan-950/30'
+    : 'hover:border-fuchsia-300 hover:shadow-fuchsia-900/10 dark:hover:border-fuchsia-300/70 dark:hover:shadow-fuchsia-950/30';
+const titleAccentClass =
+  collection === 'sets'
+    ? 'group-hover:text-cyan-700 dark:group-hover:text-cyan-300'
+    : 'group-hover:text-fuchsia-700 dark:group-hover:text-fuchsia-300';
+const taxonomyAccentClass =
+  collection === 'sets'
+    ? 'text-amber-700/90 dark:text-amber-200'
+    : 'text-lime-700/90 dark:text-lime-200';
 ---
 
 <a class="group" href=`/${collection}/${setId}`>
   <article
-    class="flex flex-row gap-2 p-2 overflow-hidden bg-white dark:bg-slate-700 rounded-xl"
+    data-collection={collection}
+    data-search-text={[legoSetData.name, setNumber, taxonomy]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase()}
+    class:list={[
+      'relative flex flex-row gap-3 h-full overflow-hidden rounded-2xl border border-slate-900/10 bg-white/85 p-3 shadow-sm shadow-slate-900/10 transition duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60 dark:shadow-slate-950/30',
+      cardAccentClass,
+    ]}
   >
     <div data-wishlist={isWishlist}>
       <LegoSetImage img={legoSetData.img} alt={legoSetData.name} small />
     </div>
-    <header class="mx-1 md:mx-2 flex flex-col justify-between">
+    <header class="mx-1 flex flex-col justify-between py-1">
       <div>
         {
           taxonomy && (
-            <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400">
+            <p
+              class:list={[
+                'text-xs uppercase tracking-[0.12em]',
+                taxonomyAccentClass,
+              ]}
+            >
               {taxonomy}
             </p>
           )
         }
         <h4
-          class="text-sm sm:text-md group-hover:underline underline-offset-2 group-hover:text-sky-500 dark:text-sky-300"
+          class:list={[
+            'text-sm font-semibold text-slate-900 underline-offset-2 transition group-hover:underline sm:text-base dark:text-slate-100',
+            titleAccentClass,
+          ]}
         >
           {legoSetData.name}
         </h4>
       </div>
-      <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400">
+      <p class="text-xs text-slate-500 sm:text-sm dark:text-slate-300">
         <span class="text-gray-300 after:content-['_']">#</span>{
           showVariant ? `${setNumber} variant ${variant}` : setNumber
         }
@@ -55,11 +83,15 @@ const isWishlist = legoSetData.wishlist ?? false;
   [data-wishlist='true']::before {
     content: '★';
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 6px;
+    right: 6px;
     display: inline-block;
-    margin-right: 4px;
-    color: rgb(250, 202, 21);
+    color: rgb(245, 158, 11);
     z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.35));
+  }
+
+  [data-collection='minifigs'] [data-wishlist='true']::before {
+    color: rgb(217, 70, 239);
   }
 </style>

@@ -19,18 +19,39 @@ const taxonomy = setUtils.getTaxonomy(themes)(legoSetData);
 const isWishlist = legoSetData.wishlist ?? false;
 const isPromotionalSet = setUtils.isPromotionalSet(legoSetData);
 const showVariant = collection === 'minifigs';
+const detailAccentClass =
+  collection === 'sets'
+    ? 'border-amber-200/80 shadow-amber-900/10 dark:border-amber-300/35 dark:shadow-amber-950/20'
+    : 'border-fuchsia-200/80 shadow-fuchsia-900/10 dark:border-fuchsia-300/35 dark:shadow-fuchsia-950/20';
+const imageAccentClass =
+  collection === 'sets'
+    ? 'ring-1 ring-cyan-200/70 dark:ring-cyan-300/35'
+    : 'ring-1 ring-lime-200/80 dark:ring-lime-300/35';
 ---
 
-<article class="bg-white dark:bg-transparent">
+<article
+  class:list={[
+    'detail-card rounded-3xl border bg-white/75 p-3 shadow-lg backdrop-blur-sm dark:bg-slate-900/60 dark:shadow-slate-950/35 md:p-5',
+    detailAccentClass,
+  ]}
+>
   <LegoSetHeader
     title={legoSetData.name}
     taxonomy={taxonomy}
     wishlist={isWishlist}
-    backButton=`/${collection}`
   />
-  <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
-  <section class="py-4">
-    <div class="w-fit mx-auto flex items-end gap-8">
+  <div
+    class:list={[
+      'mt-4 rounded-2xl bg-white/90 p-3 pt-6 shadow-sm shadow-slate-900/10 dark:bg-slate-800/80 dark:shadow-slate-950/35 md:p-5 md:pt-8',
+      imageAccentClass,
+    ]}
+  >
+    <LegoSetImage img={legoSetData.img} alt={legoSetData.name} />
+  </div>
+  <section class="py-5">
+    <div
+      class="mx-auto grid w-full max-w-4xl grid-cols-2 items-stretch gap-3 md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4"
+    >
       <LegoSetInfoBlock
         icon="pound"
         title={collection === 'sets' ? 'Set N°' : 'Minifig N°'}
@@ -55,6 +76,7 @@ const showVariant = collection === 'minifigs';
             href={`https://www.lego.com/nl-be/service/building-instructions/${setNumber}`}
             target="_blank"
             rel="noopener noreferrer"
+            class="group block h-full w-full rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 md:w-auto dark:focus-visible:outline-slate-300"
           >
             <LegoSetInfoBlock icon="book-open" title="Open on LEGO.com">
               Instructions{' '}
