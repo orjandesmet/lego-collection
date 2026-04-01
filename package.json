@@ -29,18 +29,18 @@
   "devDependencies": {
     "@actions/core": "^3.0.0",
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.56.1",
-    "eslint": "^10.0.2",
+    "@typescript-eslint/parser": "^8.58.0",
+    "eslint": "^10.1.0",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "file-type": "^21.3.0",
+    "file-type": "^22.0.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.3.1",
+    "lint-staged": "^16.4.0",
     "node-fetch": "^3.3.2",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.0"
   },
   "lint-staged": {
     "*.{css,html,json,cjs,mjs,js,ts,astro,yaml,md}": "prettier --write",
