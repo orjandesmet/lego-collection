@@ -9,5 +9,12 @@
   "themes": ["764"],
   "parts": 1003,
   "wishlist": false,
-  "dateAdded": "2026-03-02"
+  "dateAdded": "2026-03-02",
+  "dateStarted": "2026-05-06",
+  "dateFinished": "2026-05-07",
+  "totalTimeSpent": {
+    "hours": 1,
+    "minutes": 44,
+    "seconds": 45
+  }
 }
