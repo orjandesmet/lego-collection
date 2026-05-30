@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "60483-1",
+  "name": "Rides – Construction Loader",
+  "img": "./img/60483-1.png",
+  "year": 2026,
+  "themeId": "56",
+  "themes": ["52", "56"],
+  "parts": 61,
+  "wishlist": false,
+  "dateAdded": "2026-05-30"
+}
