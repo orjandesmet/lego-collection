@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "71051-8",
+  "name": "Crocodile Suit",
+  "img": "./img/71051-8.jpg",
+  "year": 2026,
+  "themeId": "786",
+  "themes": ["535", "786"],
+  "parts": 7,
+  "wishlist": false,
+  "dateAdded": "2026-06-16"
+}
