@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "60485-1",
+  "name": "Hot Rod",
+  "img": "./img/60485-1.png",
+  "year": 2026,
+  "themeId": "63",
+  "themes": ["52", "63"],
+  "parts": 81,
+  "wishlist": false,
+  "dateAdded": "2026-06-30"
+}
