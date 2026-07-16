@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "11381-1",
+  "name": "Jaguar E-type",
+  "img": "./img/11381-1.jpg",
+  "year": 2026,
+  "themeId": "721",
+  "themes": ["721"],
+  "parts": 0,
+  "wishlist": true,
+  "dateAdded": "2026-07-16"
+}
