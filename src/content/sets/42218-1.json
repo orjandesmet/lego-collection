@@ -1,0 +1,13 @@
+{
+  "$schema": "../set-schema.json",
+  "source": "rebrickable",
+  "setNumber": "42218-1",
+  "name": "John Deere 1470H Wheeled Harvester",
+  "img": "./img/42218-1.png",
+  "year": 2026,
+  "themeId": "1",
+  "themes": ["1"],
+  "parts": 117,
+  "wishlist": false,
+  "dateAdded": "2026-08-27"
+}
