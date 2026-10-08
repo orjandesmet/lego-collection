@@ -2,11 +2,11 @@
   "trailingComma": "es5",
   "tabWidth": 2,
   "singleQuote": true,
-  "plugins": ["prettier-plugin-astro"],
   "overrides": [
     {
       "files": "*.astro",
       "options": {
+        "plugins": ["prettier-plugin-astro"],
         "parser": "astro"
       }
     }
