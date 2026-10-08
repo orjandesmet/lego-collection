@@ -12,9 +12,9 @@
     "preview": "astro preview",
     "test": "echo \"Testing... not, really though\"",
     "astro": "astro",
-    "lint-staged": "lint-staged",
+    "nano-staged": "nano-staged",
     "pre-commit": "husky precommit",
-    "prepare": "husky install"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -35,15 +35,11 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "file-type": "^22.1.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.6.0",
+    "nano-staged": "^1.0.2",
     "node-fetch": "^3.3.2",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
     "typescript": "^7.0.2",
     "typescript-eslint": "^8.70.1"
-  },
-  "lint-staged": {
-    "*.{css,html,json,cjs,mjs,js,ts,astro,yaml,md}": "prettier --write",
-    "*.{js,ts,astro}": "eslint --fix"
   }
 }
