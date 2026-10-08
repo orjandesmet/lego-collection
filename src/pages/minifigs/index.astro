@@ -32,9 +32,7 @@ const minifigsByTheme = Array.from(themesInminifigs)
 <BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
     <ThemedPageShell collection="minifigs" variant="collection">
-      <section
-        class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pb-10 pt-10 md:px-8 md:pt-14"
-      >
+      <section class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pb-10 pt-10 md:px-8 md:pt-14">
         <CollectionHeader
           overviewLabel="Minifig overview"
           title="My LEGO minifigs"
@@ -54,7 +52,9 @@ const minifigsByTheme = Array.from(themesInminifigs)
         />
 
         <div class="animate-rise" style="animation-delay:50ms">
-          <label for="minifig-search" class="sr-only">Search minifigs</label>
+          <label for="minifig-search" class="sr-only">
+            Search minifigs
+          </label>
           <input
             id="minifig-search"
             type="search"
@@ -63,27 +63,25 @@ const minifigsByTheme = Array.from(themesInminifigs)
           />
         </div>
 
-        {
-          minifigsByTheme.map(({ themeId, items }, index) => (
-            <div data-search-section>
-              <CollectionSection
-                accent="lime"
-                title={
-                  allThemes.find((theme) => theme.id === themeId)?.data?.name ??
-                  themeId
-                }
-                meta={`${items.length} items`}
-                animationDelayMs={80 + index * 40}
-              >
-                <CollectionSetGrid
-                  collection="minifigs"
-                  items={items}
-                  showVariant
-                />
-              </CollectionSection>
-            </div>
-          ))
-        }
+        {minifigsByTheme.map(({ themeId, items }, index) => (
+          <div data-search-section>
+            <CollectionSection
+              accent="lime"
+              title={
+                allThemes.find((theme) => theme.id === themeId)?.data?.name ??
+                themeId
+              }
+              meta={`${items.length} items`}
+              animationDelayMs={80 + index * 40}
+            >
+              <CollectionSetGrid
+                collection="minifigs"
+                items={items}
+                showVariant
+              />
+            </CollectionSection>
+          </div>
+        ))}
       </section>
     </ThemedPageShell>
   </LegoBody>

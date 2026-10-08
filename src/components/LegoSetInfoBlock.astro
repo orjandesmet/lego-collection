@@ -70,11 +70,9 @@ const tone = textToneClasses[icon];
   <p class:list={['mt-2 text-sm font-bold leading-tight', tone.value]}>
     <slot />
   </p>
-  {
-    title && (
-      <p class:list={['mt-1 text-xs uppercase tracking-[0.08em]', tone.label]}>
-        {title}
-      </p>
-    )
-  }
+  {title && (
+    <p class:list={['mt-1 text-xs uppercase tracking-[0.08em]', tone.label]}>
+      {title}
+    </p>
+  )}
 </div>

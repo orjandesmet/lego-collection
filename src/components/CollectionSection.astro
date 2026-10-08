@@ -28,9 +28,11 @@ const accentClassMap: Record<Accent, string> = {
     accentClassMap[accent],
     className,
   ]}
-  style={animationDelayMs !== undefined
-    ? `animation-delay:${animationDelayMs}ms`
-    : undefined}
+  style={
+    animationDelayMs !== undefined
+      ? `animation-delay:${animationDelayMs}ms`
+      : undefined
+  }
 >
   <div class="mb-4 flex items-center justify-between gap-2">
     <h2 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">

@@ -36,4 +36,6 @@ const classesByVariant = {
 const blobs = classesByVariant[collection][variant];
 ---
 
-{blobs.map((blobClass) => <div class={blobClass} />)}
+{blobs.map((blobClass) => (
+  <div class={blobClass} />
+))}

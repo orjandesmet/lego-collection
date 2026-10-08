@@ -29,19 +29,15 @@ const pageTitle = legoSet.data.name;
 <BaseLayout pageTitle={pageTitle}>
   <LegoBody pageTitle={pageTitle}>
     <ThemedPageShell collection="sets" variant="detail">
-      <section
-        class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-10 pt-10 md:px-8 md:pt-14"
-      >
+      <section class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-10 pt-10 md:px-8 md:pt-14">
         <LegoSetDetail collection="sets" legoSetData={legoSet.data} />
-        {
-          moreSets && (
-            <LegoSetRecirculation
-              collection="sets"
-              title="Related sets"
-              sets={moreSets}
-            />
-          )
-        }
+        {moreSets && (
+          <LegoSetRecirculation
+            collection="sets"
+            title="Related sets"
+            sets={moreSets}
+          />
+        )}
       </section>
     </ThemedPageShell>
   </LegoBody>
