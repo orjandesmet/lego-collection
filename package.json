@@ -29,17 +29,17 @@
   "devDependencies": {
     "@actions/core": "^3.0.1",
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.70.1",
-    "eslint": "^10.11.0",
+    "@typescript-eslint/parser": "^8.72.1",
+    "eslint": "^10.13.0",
     "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "file-type": "^22.1.1",
+    "file-type": "^22.2.0",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "node-fetch": "^3.3.2",
-    "prettier": "^3.9.9",
-    "prettier-plugin-astro": "^1.1.0",
-    "typescript": "^6.0.2",
-    "typescript-eslint": "^8.70.1"
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.72.1"
   }
 }
